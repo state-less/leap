@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.FingerprintButton = void 0;
 
-require("./FingerPrintButton");
-
 var _material = require("@mui/material");
 
 var _clsx = _interopRequireDefault(require("clsx"));

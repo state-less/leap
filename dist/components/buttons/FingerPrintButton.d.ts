@@ -1,4 +1,3 @@
-import './FingerPrintButton';
 import { FunctionComponent } from 'react';
 declare type FingerPrintButtonProps = {
     t: Function | null;

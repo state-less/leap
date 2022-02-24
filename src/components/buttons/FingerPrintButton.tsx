@@ -1,4 +1,3 @@
-import './FingerPrintButton'
 import { Button, ButtonProps, Tooltip } from '@mui/material';
 import clsx from 'clsx';
 const {
