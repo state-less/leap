@@ -1,2 +1,4 @@
 export * from './components/TestComponent'
-export * from './components/buttons/FingerPrintButton'
+import {FingerprintButton} from './components/buttons/FingerPrintButton'
+
+export {FingerprintButton}
