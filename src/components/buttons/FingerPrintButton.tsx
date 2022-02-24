@@ -1,22 +1,31 @@
+import './FingerPrintButton'
 import { Button, ButtonProps, Tooltip } from '@mui/material';
 import clsx from 'clsx';
-import {
+const {
     useClientContext,
     useAuth,
     fingerprintStrategy,
-} from '@state-less/react-client';
+} = require('@state-less/react-client');
 import { truncateMid } from '../../util';
+import { FunctionComponent } from 'react';
 
 const LABEL_BUTTON = 'Fingerprint';
 const TITLE_TOOLTIP_AUTH = 'Authenticated';
 const translate = Function.prototype;
 
+type FingerPrintButtonProps = {
+    t: Function | null;
+};
 /**
  * A button that attempts fingerprint based authentication against a react-server.
  * @param t - Optional translation function from react-i18n.
  * @returns
  */
-export const FingerprintButton = ({ children = null, t = null, ...rest }) => {
+export const FingerprintButton: FunctionComponent<FingerPrintButtonProps> = ({
+    children = null,
+    t = null,
+    ...rest
+}) => {
     const { identity } = useClientContext();
     const { authenticate } = useAuth(fingerprintStrategy);
 
