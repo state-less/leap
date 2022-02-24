@@ -6,7 +6,6 @@
     "private": true,
     "dependencies": {
         "@mui/material": "^5.4.3",
-        "@state-less/react-client": "github:state-less/react-client#junk/testauth",
         "clsx": "^1.1.1",
         "react": "^17.0.2"
     },
@@ -29,7 +28,8 @@
         ]
     },
     "peerDependencies": {
-        "react": "^17.0.2"
+        "react": "^17.0.2",
+        "@state-less/react-client": "github:state-less/react-client#junk/testauth"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
