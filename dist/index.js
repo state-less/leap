@@ -11,7 +11,7 @@ Object.keys(_TestComponent).forEach(function (key) {
   if (key in exports && exports[key] === _TestComponent[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
-    get: function () {
+    get: function get() {
       return _TestComponent[key];
     }
   });

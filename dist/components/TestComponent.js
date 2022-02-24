@@ -5,10 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.TestComponent = void 0;
 
-var _jsxRuntime = require("react-server/jsx-renderer/jsx-runtime");
+var _jsxRuntime = require("react/jsx-runtime");
 
-const TestComponent = () => {
-  return (0, _jsxRuntime.jsx)("div", {
+var TestComponent = function TestComponent() {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     children: "Hello"
   });
 };
