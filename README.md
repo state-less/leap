@@ -109,25 +109,42 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 -   npm
-    ```sh
-    npm install npm@latest -g
-    ```
+-   leap cli
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Register for the Beta at [https://state-less.cloud](https://state-less.cloud)
+2. Install the cli (we will change to a npx based solution later. But for now that's the easieast way)
+
+```sh
+  npm i -g @state-less/cli
+```
+
+2. Initialize a new backend project.
     ```sh
-    git clone https://github.com/state-less/leap.git
-    ```
-3. Install NPM packages
-    ```sh
+    mkdir server
+    cd server
+    leap init --backend
     npm install
     ```
-4. Enter your API in `config.js`
-    ```js
-    const API_KEY = 'ENTER YOUR API';
+3. Initialize a new frontend project.
+    ```sh
+    mkdir frontend
+    cd frontend
+    leap init --frontend
+    npm install
     ```
+4. Start server and frontend (open two terminals)
+
+    ```js
+    cd server
+    npm start
+
+    cd frontend
+    npm start
+    ```
+
+The backend should be running at
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -175,7 +192,12 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+This project doesn't have a license yet; which is subject to change.
+Until a proper alpha release it's distribution and distribution of derivates is prohibited.
+There is currently no 'LICENSE.txt'. Once their will be a LICENSE.txt it will be in effect immediately.
+The license is open for change at any time. Users who obtained a copy before the change are subject to those changes as well.
+
+The license will most probably become MIT once this project reaches production.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
