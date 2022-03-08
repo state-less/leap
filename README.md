@@ -80,9 +80,9 @@
 ![Leap Demo Screen Shot](https://raw.githubusercontent.com/state-less/react-server/master/images/screenshot.jpg)
 
 Leap is a fullstack PWA (Progressive Web App) framework with components for the backend and frontend.
-It's built upon [Leap Demo Screen Shot][react-server] and [Material UI](http://mui.com).
-Build blazing fast web applications in minutes by using react components as building blocks for your backend.
-Digitalize your buisiness process and build a growing ecosystem of scalable microservices.
+It's built on [leap](https://state-less.cloud) and [Material UI](http://mui.com).  
+Build blazing fast web applications in minutes using react components as building blocks for your backend.  
+Digitalize your business process and build a growing ecosystem of scalable microservices.
 
 Check out the demo here [state-less.cloud](https://state-less.cloud)
 
@@ -116,25 +116,25 @@ This is an example of how to list things you need to use the software and how to
 1. Register for the Beta at [https://state-less.cloud](https://state-less.cloud)
 2. Install the cli (we will change to a npx based solution later. But for now that's the easieast way)
 
-```sh
-  npm i -g @state-less/cli
-```
+    ```sh
+      npm i -g @state-less/cli
+    ```
 
-2. Initialize a new backend project.
+3. Initialize a new backend project.
     ```sh
     mkdir server
     cd server
     leap init --backend
     npm install
     ```
-3. Initialize a new frontend project.
+4. Initialize a new frontend project.
     ```sh
     mkdir frontend
     cd frontend
     leap init --frontend
     npm install
     ```
-4. Start server and frontend (open two terminals)
+5. Start server and frontend (open two terminals)
 
     ```js
     cd server
@@ -162,10 +162,19 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
--   [ ] Feature 1
--   [ ] Feature 2
--   [ ] Feature 3
-    -   [ ] Nested Feature
+-   PWA
+    -   [x] Authentication
+        -   [x] WebAuthn
+        -   [x] Google
+        -   [x] Fingerprint
+        -   [x] WebA3
+    -   [x] Web Push
+-   Server Components
+    -   [x] Polls
+    -   [x] Comments
+    -   [x] Counter (e.g. likes / stars / votes)
+    -   [x] Inbox (e.g. notifications / messages)
+    -   [] Blog
 
 See the [open issues](https://github.com/state-less/leap/issues) for a full list of proposed features (and known issues).
 
@@ -215,9 +224,7 @@ Project Link: [https://github.com/state-less/leap](https://github.com/state-less
 
 ## Acknowledgments
 
--   []()
--   []()
--   []()
+-   [MUI](https://mui.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
