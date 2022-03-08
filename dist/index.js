@@ -27,4 +27,18 @@ Object.keys(_TestComponent).forEach(function (key) {
   });
 });
 
+var _serverside = require("./components/serverside");
+
+Object.keys(_serverside).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _serverside[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _serverside[key];
+    }
+  });
+});
+
 var _FingerPrintButton = require("./components/buttons/FingerPrintButton");
