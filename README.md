@@ -27,7 +27,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/state-less/leap">
-    <img src="public/favicon.svg" alt="Logo" width="80" height="80">
+    <img src="images/favicon.svg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Leap</h3>
@@ -39,7 +39,7 @@
     <a href="https://github.com/state-less/leap"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/state-less/leap">View Demo</a>
+    <a href="https://state-less.cloud">View Demo</a>
     ·
     <a href="https://github.com/state-less/leap/issues">Report Bug</a>
     ·
@@ -214,5 +214,5 @@ Project Link: [https://github.com/state-less/leap](https://github.com/state-less
 [license-url]: https://github.com/state-less/leap/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/moritz-roessler-666b18175
-[product-screenshot]: /public/leap-demo-screenshot.PNG?raw=true
+[product-screenshot]: /images/screenshot.jpg?raw=true
 [react-server]: https://github.com/state-less/react-server
