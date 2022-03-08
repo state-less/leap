@@ -77,7 +77,7 @@
 
 ## About The Project
 
-![Leap Demo Screen Shot](./public/screenshot.png)
+![Leap Demo Screen Shot](./images/screenshot.png)
 
 Leap is a fullstack PWA (Progressive Web App) framework with components for the backend and frontend.
 It's built upon [Leap Demo Screen Shot][react-server] and [Material UI](http://mui.com).
