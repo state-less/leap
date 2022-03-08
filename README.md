@@ -80,7 +80,7 @@
 ![Leap Demo Screen Shot](https://raw.githubusercontent.com/state-less/react-server/master/images/screenshot.jpg)
 
 Leap is a fullstack PWA (Progressive Web App) framework with components for the backend and frontend.
-It's built on [Leap Demo Screen Shot][react-server] and [Material UI](http://mui.com).
+It's built on [react-server][react-server] and [Material UI](http://mui.com).
 Build blazing fast web applications in minutes by using react components as building blocks for your backend.
 Digitalize your buisiness process and build a growing ecosystem of scalable microservices.
 
