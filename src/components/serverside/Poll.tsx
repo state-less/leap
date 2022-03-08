@@ -13,7 +13,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { useTheme } from '@emotion/react';
 import { Box } from '@mui/system';
-import { useSpring, animated, useTransition } from 'react-spring';
+import { useSpring, animated as spring, useTransition } from 'react-spring';
 import { FunctionComponent } from 'react';
 import {
     PollItemProps,
@@ -57,7 +57,7 @@ export const PollView: FunctionComponent<PollViewProps> = (props) => {
 };
 
 export const PollItem: FunctionComponent<PollItemProps> = (props) => {
-    const { votes, option, prc, voted, vote, index } = props;
+    const { votes, option, prc, voted, vote, index, animated = true } = props;
 
     const theme = useTheme() as Theme;
     const style = useSpring({
@@ -70,16 +70,18 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
         from: { transform: 'scale(2)' },
         enter: { transform: 'scale(1)' },
         immediate: index !== voted,
+        enabled: animated,
     });
+
     return (
         <ListItem dense>
             <ListItemIcon>
                 <IconButton onClick={() => vote(index)}>
                     {buttons((props, item) => {
                         return (
-                            <animated.span style={{ ...props, height: 24 }}>
+                            <spring.span style={{ ...props, height: 24 }}>
                                 {item ? <Favorite /> : <FavoriteBorderIcon />}
-                            </animated.span>
+                            </spring.span>
                         );
                     })}
                 </IconButton>
@@ -98,7 +100,7 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                 }}
             ></div>
 
-            <animated.div
+            <spring.div
                 style={{
                     ...style,
                     position: 'absolute',
@@ -108,7 +110,7 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     height: 'calc(100% - 4px)',
                     zIndex: -1,
                 }}
-            ></animated.div>
+            ></spring.div>
 
             <ListItemText primary={option} secondary={(votes || [])[index]} />
         </ListItem>
