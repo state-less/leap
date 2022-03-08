@@ -77,7 +77,7 @@
 
 ## About The Project
 
-![Leap Demo Screen Shot](./images/screenshot.jpg)
+![Leap Demo Screen Shot](https://raw.githubusercontent.com/state-less/react-server/master/images/screenshot.jpg)
 
 Leap is a fullstack PWA (Progressive Web App) framework with components for the backend and frontend.
 It's built upon [Leap Demo Screen Shot][react-server] and [Material UI](http://mui.com).
@@ -144,7 +144,7 @@ This is an example of how to list things you need to use the software and how to
     npm start
     ```
 
-The backend should be running at
+The backend should be running at port 8080 and the frontend on port 3000. If you want to run the [demo page](https://state-less.cloud) yourself. You can clone the [project](https://github.com/state-less/leap-demo).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
