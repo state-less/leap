@@ -27,13 +27,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/state-less/leap">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/favicon.svg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Leap</h3>
 
   <p align="center">
-    Leap is a modern fullstack PWA framework. Build the web of tomorrow with backend react components.
+    Leap is a modern fullstack PWA framework.  
+     Build the web of tomorrow with server side react components.
     <br />
     <a href="https://github.com/state-less/leap"><strong>Explore the docs »</strong></a>
     <br />
@@ -76,7 +77,7 @@
 
 ## About The Project
 
-[![Leap Demo Screen Shot][product-screenshot]](/public/leap-demo-screenshot.PNG?raw=true 'Leap Demo Screenshot')
+![Leap Demo Screen Shot](./public/screenshot.png)
 
 Leap is a fullstack PWA (Progressive Web App) framework with components for the backend and frontend.
 It's built upon [Leap Demo Screen Shot][react-server] and [Material UI](http://mui.com).
@@ -213,5 +214,5 @@ Project Link: [https://github.com/state-less/leap](https://github.com/state-less
 [license-url]: https://github.com/state-less/leap/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/moritz-roessler-666b18175
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: /public/leap-demo-screenshot.PNG?raw=true
 [react-server]: https://github.com/state-less/react-server
