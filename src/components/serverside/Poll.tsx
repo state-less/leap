@@ -42,7 +42,7 @@ export const PollView: FunctionComponent<PollViewProps> = (props) => {
                         return (
                             <span>
                                 <PollItem
-                                    key={`poll-item-${i}`}
+                                    key={`poll-item-${option}`}
                                     option={option}
                                     index={i}
                                     prc={prc}
@@ -98,7 +98,7 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     height: 'calc(100% - 4px)',
                     zIndex: -1,
                 }}
-            ></div>
+            />
 
             <spring.div
                 style={{
@@ -110,13 +110,18 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     height: 'calc(100% - 4px)',
                     zIndex: -1,
                 }}
-            ></spring.div>
+            />
 
             <ListItemText primary={option} secondary={(votes || [])[index]} />
         </ListItem>
     );
 };
 
+/**
+ * A component that let's users vote on a set of options.
+ * @param name - The name of the Poll component as defined on the server.
+ * @param Component - The component that renders the poll.
+ */
 export const Poll: FunctionComponent<PollProps> = ({
     name = 'poll',
     Component = PollView,

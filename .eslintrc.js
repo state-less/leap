@@ -54,6 +54,7 @@ module.exports = {
         'react/prop-types': 'off',
         'react/jsx-curly-newline': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        'no-bitwise': 'off',
         indent: 'off',
     },
 };
