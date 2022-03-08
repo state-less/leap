@@ -32,8 +32,8 @@
         ]
     },
     "peerDependencies": {
-        "react": "^17.0.2",
-        "@state-less/react-client": "github:state-less/react-client#alpha/0.0.1"
+        "@state-less/react-client": "github:state-less/react-client#alpha/0.0.1",
+        "react": "^17.0.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
@@ -45,6 +45,7 @@
         "@babel/plugin-transform-typescript": "^7.16.8",
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-typescript": "^7.16.7",
+        "@state-less/react-client": "state-less/react-client#alpha/0.0.1",
         "@typescript-eslint/eslint-plugin": "^5.12.0",
         "@typescript-eslint/parser": "^5.12.0",
         "eslint": "^7.32.0",

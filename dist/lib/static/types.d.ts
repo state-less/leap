@@ -15,6 +15,7 @@ export declare type PollItemProps = {
     vote: (n: number) => void;
     voted: number;
     error: Error;
+    animated?: boolean;
 };
 export declare type PropsWithName = {
     /**

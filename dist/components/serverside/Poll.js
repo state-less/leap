@@ -84,7 +84,9 @@ var PollItem = function PollItem(props) {
       prc = props.prc,
       voted = props.voted,
       vote = props.vote,
-      index = props.index;
+      index = props.index,
+      _props$animated = props.animated,
+      animated = _props$animated === void 0 ? true : _props$animated;
   var theme = (0, _react.useTheme)();
   var style = (0, _reactSpring.useSpring)({
     from: {
@@ -104,7 +106,8 @@ var PollItem = function PollItem(props) {
     enter: {
       transform: 'scale(1)'
     },
-    immediate: index !== voted
+    immediate: index !== voted,
+    enabled: animated
   });
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.ListItem, {
     dense: true,
