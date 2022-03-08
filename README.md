@@ -175,6 +175,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     -   [x] Counter (e.g. likes / stars / votes)
     -   [x] Inbox (e.g. notifications / messages)
     -   [] Blog
+-   UI
+    -   [x] Command Palette
+    -   [x] Settings
+-   Intellisense
+    -   [x] Typescript
+    -   [] JSDoc
+-   [x] Serverless
 
 See the [open issues](https://github.com/state-less/leap/issues) for a full list of proposed features (and known issues).
 
