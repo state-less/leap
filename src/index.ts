@@ -1,9 +1,6 @@
-export * from './components/TestComponent';
-
-/**
- * Export all server side components
- */
-import { Poll } from './components/serverside';
+import { Poll, Comments } from './components/serverside';
 import { FingerprintButton } from './components/buttons/FingerPrintButton';
 
-export { FingerprintButton, Poll };
+export * from './components/TestComponent';
+
+export { FingerprintButton, Poll, Comments };

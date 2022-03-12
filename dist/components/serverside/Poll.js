@@ -69,7 +69,7 @@ var PollView = function PollView(props) {
             option: option,
             index: i,
             prc: prc
-          }, props), "poll-item-".concat(i))
+          }, props), "poll-item-".concat(option))
         });
       })
     })]
@@ -151,6 +151,12 @@ var PollItem = function PollItem(props) {
     })]
   });
 };
+/**
+ * A component that let's users vote on a set of options.
+ * @param name - The name of the Poll component as defined on the server.
+ * @param Component - The component that renders the poll.
+ */
+
 
 exports.PollItem = PollItem;
 

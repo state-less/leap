@@ -5,8 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 var _exportNames = {
   Poll: true,
+  Comments: true,
   FingerprintButton: true
 };
+Object.defineProperty(exports, "Comments", {
+  enumerable: true,
+  get: function get() {
+    return _serverside.Comments;
+  }
+});
 Object.defineProperty(exports, "FingerprintButton", {
   enumerable: true,
   get: function get() {
@@ -19,6 +26,10 @@ Object.defineProperty(exports, "Poll", {
     return _serverside.Poll;
   }
 });
+
+var _serverside = require("./components/serverside");
+
+var _FingerPrintButton = require("./components/buttons/FingerPrintButton");
 
 var _TestComponent = require("./components/TestComponent");
 
@@ -33,7 +44,3 @@ Object.keys(_TestComponent).forEach(function (key) {
     }
   });
 });
-
-var _serverside = require("./components/serverside");
-
-var _FingerPrintButton = require("./components/buttons/FingerPrintButton");

@@ -1,2 +1,4 @@
 import { Poll } from './Poll';
-export { Poll };
+import { Comments } from './Comments';
+
+export { Poll, Comments };
