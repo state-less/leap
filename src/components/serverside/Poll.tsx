@@ -23,7 +23,7 @@ import {
 
 export const PollModel = ({ View, ...rest }) => {
     const props = useProps();
-    const vote = useAction('vote', 'onClick', null);
+    const vote = useAction('vote', 'onClick');
 
     return <View {...props} vote={vote} {...rest} />;
 };

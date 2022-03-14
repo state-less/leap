@@ -41,7 +41,7 @@ var PollModel = function PollModel(_ref) {
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var props = (0, _reactClient.useProps)();
-  var vote = (0, _reactClient.useAction)('vote', 'onClick', null);
+  var vote = (0, _reactClient.useAction)('vote', 'onClick');
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(View, _objectSpread(_objectSpread({}, props), {}, {
     vote: vote
   }, rest));

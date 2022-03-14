@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CommentsView = exports.CommentsModel = exports.Comments = exports.CommentView = exports.CommentModel = exports.CommentMarkdown = exports.CommentLikes = void 0;
+exports.CommentsView = exports.CommentsModel = exports.Comments = exports.CommentView = exports.CommentModel = exports.CommentMarkdown = void 0;
 
 var _material = require("@mui/material");
 
@@ -83,8 +83,7 @@ var CommentsModel = function CommentsModel(_ref) {
 exports.CommentsModel = CommentsModel;
 
 var CommentsView = function CommentsView(props) {
-  var error = props.error,
-      comments = props.comments,
+  var comments = props.comments,
       addComment = props.addComment,
       deleteComment = props.deleteComment,
       pagination = props.pagination,
@@ -94,7 +93,7 @@ var CommentsView = function CommentsView(props) {
       _props$markdown = props.markdown,
       markdown = _props$markdown === void 0 ? false : _props$markdown;
 
-  var _useState = (0, _react.useState)(),
+  var _useState = (0, _react.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       comment = _useState2[0],
       setComment = _useState2[1];
@@ -119,16 +118,16 @@ var CommentsView = function CommentsView(props) {
       severity: "error",
       children: err.message
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.List, {
-      children: comments && comments.slice && comments.slice().reverse().slice(-pageSize + page * pageSize, page * pageSize).map(function (comment, i) {
+      children: comments && comments.slice && comments.slice().reverse().slice(-pageSize + page * pageSize, page * pageSize).map(function (commentData) {
         return /*#__PURE__*/(0, _jsxRuntime.jsx)(Comment, _objectSpread(_objectSpread({
-          name: "comment-".concat(comment.id)
-        }, comment), {}, {
+          name: "comment-".concat(commentData.id)
+        }, commentData), {}, {
           deleteComment: deleteComment
-        }), comment.id);
+        }), commentData.id);
       })
     }), pagination && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Pagination, {
       page: page,
-      count: ~~Math.ceil((comments === null || comments === void 0 ? void 0 : comments.length) / pageSize),
+      count: ~~Math.ceil(~~(comments === null || comments === void 0 ? void 0 : comments.length) / pageSize),
       onChange: function onChange(e, v) {
         return setPage(v);
       }
@@ -136,7 +135,9 @@ var CommentsView = function CommentsView(props) {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.CardContent, {
         children: [markdown && /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactMdEditor.default, {
           value: comment,
-          onChange: setComment
+          onChange: function onChange(e) {
+            return setComment(e);
+          }
         }), !markdown && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.TextField, {
           disabled: addComment.disabled,
           multiline: true,
@@ -184,17 +185,6 @@ var CommentsView = function CommentsView(props) {
 
 exports.CommentsView = CommentsView;
 
-var CommentLikes = function CommentLikes(props) {
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
-    avatar: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.IconButton, {
-      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Icons.HeartIcon, {})
-    }),
-    label: "23"
-  });
-};
-
-exports.CommentLikes = CommentLikes;
-
 var CommentMarkdown = function CommentMarkdown(props) {
   var markdown = props.markdown;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
@@ -213,12 +203,9 @@ var truncateName = function truncateName() {
 
 var CommentView = function CommentView(props) {
   var deleteComment = props.deleteComment,
-      value = props.value,
-      markdown = props.markdown,
       createdAt = props.createdAt,
       _props$owner = props.owner,
       owner = _props$owner === void 0 ? null : _props$owner,
-      increase = props.increase,
       id = props.id,
       error = props.error;
   var styles = (0, _reactSpring.useSpring)({
@@ -271,9 +258,9 @@ var CommentView = function CommentView(props) {
                 }),
                 label: truncateName(owner === null || owner === void 0 ? void 0 : owner.name)
               }), createdAt && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Date.Date, {
-                value: createdAt,
                 fromNow: true,
-                format: "DD.MM HH:mm"
+                format: "DD.MM HH:mm",
+                children: createdAt
               })]
             })]
           })]
@@ -305,17 +292,12 @@ var Comment = function Comment(_ref4) {
       Component = _ref4$Component === void 0 ? CommentView : _ref4$Component,
       rest = _objectWithoutProperties(_ref4, _excluded3);
 
-  if (!name) throw new Error('Comment nees a property "name"');
-
-  var _useClientContext = (0, _reactClient.useClientContext)(),
-      headers = _useClientContext.headers;
-
-  var props = {};
+  if (!name) throw new Error('Comment needs a property "name"');
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
     name: name,
-    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentModel, _objectSpread(_objectSpread({
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentModel, _objectSpread({
       View: Component
-    }, props), rest))
+    }, rest))
   });
 };
 
@@ -334,11 +316,6 @@ var Comments = function Comments(_ref5) {
     pageSize: pageSize,
     compose: compose
   };
-
-  var _useClientContext2 = (0, _reactClient.useClientContext)(),
-      headers = _useClientContext2.headers;
-
-  console.error('REACT CLIENT CONTEXT', headers === null || headers === void 0 ? void 0 : headers.Authorization);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
     name: name,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentsModel, _objectSpread({

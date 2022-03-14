@@ -3,7 +3,6 @@ import { FunctionComponent } from 'react';
 export type ModelProps = {
     View: FunctionComponent;
 };
-import { FunctionComponent } from 'react';
 
 export type PollProps = ServerComponentProps & {};
 

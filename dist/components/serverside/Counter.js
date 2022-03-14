@@ -9,7 +9,7 @@ var _material = require("@mui/material");
 
 var _reactClient = require("@state-less/react-client");
 
-var _FavoriteBorder = _interopRequireDefault(require("@material-ui/icons/FavoriteBorder"));
+var _FavoriteBorder = _interopRequireDefault(require("@mui/icons-material/FavoriteBorder"));
 
 var _Favorite = _interopRequireDefault(require("@mui/icons-material/Favorite"));
 
@@ -35,6 +35,11 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
+/**
+ * The model for counter components. Injects a value prop and increase / decrease actions.
+ * @param param0
+ * @returns
+ */
 var CounterModel = function CounterModel(_ref) {
   var View = _ref.View,
       rest = _objectWithoutProperties(_ref, _excluded);
@@ -47,6 +52,8 @@ var CounterModel = function CounterModel(_ref) {
     decrease: decrease
   }));
 };
+/** Renders a Heart icon that's filled when its value is > 0 */
+
 
 exports.CounterModel = CounterModel;
 
@@ -84,11 +91,15 @@ var LikesView = function LikesView(props) {
       onClick: function onClick() {
         return increase();
       },
-      color: voted ? 'primary' : '',
+      color: voted ? 'primary' : 'default',
       children: voted ? /*#__PURE__*/(0, _jsxRuntime.jsx)(VotedIcon, {}) : /*#__PURE__*/(0, _jsxRuntime.jsx)(Icon, {})
     })
   });
 };
+/**
+ * Renders a Star Icon that's filled when its value is > 0
+ */
+
 
 exports.LikesView = LikesView;
 
@@ -98,6 +109,10 @@ var StarsView = function StarsView(props) {
     VotedIcon: _Star.default
   }));
 };
+/**
+ * Renders a simple Up / Down vote button as view for the counter.
+ */
+
 
 exports.StarsView = StarsView;
 

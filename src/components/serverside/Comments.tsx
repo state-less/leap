@@ -29,7 +29,7 @@ import { useSpring, animated } from 'react-spring';
 import { TranslatedButton } from '../translated/Button';
 import { Date } from '../Date';
 
-import { CloseIcon, HeartIcon } from '../Icons';
+import { CloseIcon } from '../Icons';
 import { Votes } from '../Counter';
 import { CounterModel } from './Counter';
 import { TranslatedAlert } from '../translated/Alert';
@@ -68,7 +68,6 @@ export const CommentsModel: FunctionComponent<CommentsProps> = ({
 
 export const CommentsView = (props) => {
     const {
-        error,
         comments,
         addComment,
         deleteComment,
@@ -78,7 +77,7 @@ export const CommentsView = (props) => {
         markdown = false,
     } = props;
 
-    const [comment, setComment] = useState();
+    const [comment, setComment] = useState<string>('');
     const [page, setPage] = useState(1);
     const [err, setError] = useState(null);
 
@@ -100,12 +99,12 @@ export const CommentsView = (props) => {
                         .slice()
                         .reverse()
                         .slice(-pageSize + page * pageSize, page * pageSize)
-                        .map((comment, i) => {
+                        .map((commentData) => {
                             return (
                                 <Comment
-                                    key={comment.id}
-                                    name={`comment-${comment.id}`}
-                                    {...comment}
+                                    key={commentData.id}
+                                    name={`comment-${commentData.id}`}
+                                    {...commentData}
                                     deleteComment={deleteComment}
                                 />
                             );
@@ -114,7 +113,7 @@ export const CommentsView = (props) => {
             {pagination && (
                 <Pagination
                     page={page}
-                    count={~~Math.ceil(comments?.length / pageSize)}
+                    count={~~Math.ceil(~~comments?.length / pageSize)}
                     onChange={(e, v) => setPage(v)}
                 />
             )}
@@ -122,7 +121,10 @@ export const CommentsView = (props) => {
                 <>
                     <CardContent>
                         {markdown && (
-                            <MDEditor value={comment} onChange={setComment} />
+                            <MDEditor
+                                value={comment}
+                                onChange={(e) => setComment(e)}
+                            />
                         )}
                         {!markdown && (
                             <TextField
@@ -155,19 +157,6 @@ export const CommentsView = (props) => {
     );
 };
 
-export const CommentLikes = (props) => {
-    return (
-        <Chip
-            avatar={
-                <IconButton>
-                    <HeartIcon />
-                </IconButton>
-            }
-            label="23"
-        />
-    );
-};
-
 export const CommentMarkdown = (props) => {
     const { markdown } = props;
 
@@ -180,17 +169,9 @@ const truncateName = (name = '') => {
     if (name.length > 15) return `${name.slice(0, 12)}...`;
     return name;
 };
+
 export const CommentView = (props) => {
-    const {
-        deleteComment,
-        value,
-        markdown,
-        createdAt,
-        owner = null,
-        increase,
-        id,
-        error,
-    } = props;
+    const { deleteComment, createdAt, owner = null, id, error } = props;
     const styles = useSpring({
         from: { opacity: 0 },
         to: { opacity: 1 },
@@ -243,11 +224,9 @@ export const CommentView = (props) => {
                                     />
                                 )}
                                 {createdAt && (
-                                    <Date
-                                        value={createdAt}
-                                        fromNow
-                                        format="DD.MM HH:mm"
-                                    />
+                                    <Date fromNow format="DD.MM HH:mm">
+                                        {createdAt}
+                                    </Date>
                                 )}
                             </div>
                         </div>
@@ -265,13 +244,10 @@ export const CommentModel = ({ View, ...rest }) => {
 };
 
 const Comment = ({ name, Component = CommentView, ...rest }) => {
-    if (!name) throw new Error('Comment nees a property "name"');
-    const { headers } = useClientContext();
-
-    const props = {};
+    if (!name) throw new Error('Comment needs a property "name"');
     return (
         <ServerComponent name={name}>
-            <CommentModel View={Component} {...props} {...rest} />
+            <CommentModel View={Component} {...rest} />
         </ServerComponent>
     );
 };
@@ -284,8 +260,6 @@ export const Comments = ({
     Component = CommentsView,
 }) => {
     const props = { pagination, pageSize, compose };
-    const { headers } = useClientContext();
-    console.error('REACT CLIENT CONTEXT', headers?.Authorization);
 
     return (
         <ServerComponent name={name}>

@@ -1,13 +1,17 @@
-import { Button, IconButton } from '@mui/material';
+/* eslint-disable no-nested-ternary */
+import { Button, IconButton, Tooltip } from '@mui/material';
 import { ServerComponent, useAction, useProps } from '@state-less/react-client';
 
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-import { Tooltip } from '@mui/material';
-
+/**
+ * The model for counter components. Injects a value prop and increase / decrease actions.
+ * @param param0
+ * @returns
+ */
 export const CounterModel = ({ View, ...rest }) => {
     const props = useProps();
     const increase = useAction('increase', 'onClick');
@@ -18,6 +22,7 @@ export const CounterModel = ({ View, ...rest }) => {
     );
 };
 
+/** Renders a Heart icon that's filled when its value is > 0 */
 export const LikesView = (props) => {
     const {
         children,
@@ -50,7 +55,7 @@ export const LikesView = (props) => {
             <IconButton
                 disabled={increase.disabled}
                 onClick={() => increase()}
-                color={voted ? 'primary' : ''}
+                color={voted ? 'primary' : 'default'}
             >
                 {voted ? <VotedIcon /> : <Icon />}
             </IconButton>
@@ -58,10 +63,16 @@ export const LikesView = (props) => {
     );
 };
 
+/**
+ * Renders a Star Icon that's filled when its value is > 0
+ */
 export const StarsView = (props) => {
     return <LikesView {...props} Icon={StarBorderIcon} VotedIcon={StarIcon} />;
 };
 
+/**
+ * Renders a simple Up / Down vote button as view for the counter.
+ */
 export const Counter = ({
     name = 'counter',
     Component = StarsView,
