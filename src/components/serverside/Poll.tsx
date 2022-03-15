@@ -112,7 +112,11 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     })}
                 </IconButton>
             </ListItemIcon>
-            <ListItemText primary={option} secondary={(votes || [])[index]} />
+            <ListItemText
+                sx={{ zIndex: 0 }}
+                primary={option}
+                secondary={(votes || [])[index]}
+            />
         </ListItem>
     );
 };

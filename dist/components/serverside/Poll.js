@@ -146,6 +146,9 @@ var PollItem = function PollItem(props) {
         })
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemText, {
+      sx: {
+        zIndex: 0
+      },
       primary: option,
       secondary: (votes || [])[index]
     })]
