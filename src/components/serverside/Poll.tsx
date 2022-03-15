@@ -7,12 +7,12 @@ import {
     ListItemIcon,
     ListItemText,
     Theme,
+    useTheme,
 } from '@mui/material';
 import { ServerComponent, useAction, useProps } from '@state-less/react-client';
 
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import { useTheme } from '@emotion/react';
 import { Box } from '@mui/system';
 import { useSpring, animated as spring, useTransition } from 'react-spring';
 import { FunctionComponent } from 'react';
