@@ -3,7 +3,11 @@ export declare type ModelProps = {
     View: FunctionComponent;
 };
 export declare type PollProps = ServerComponentProps & {};
-export declare type PollViewProps = {
+export declare type ServerProps = {
+    loading: boolean;
+    error?: Error;
+};
+export declare type PollViewProps = ServerProps & {
     values: number[];
     votes: number[];
     vote: (n: number) => void;

@@ -52,7 +52,9 @@ exports.PollModel = PollModel;
 var PollView = function PollView(props) {
   var values = props.values,
       votes = props.votes,
-      error = props.error;
+      error = props.error,
+      _props$loading = props.loading,
+      loading = _props$loading === void 0 ? !values : _props$loading;
   var sum = (votes || []).reduce(function (a, b) {
     return a + ~~b;
   }, 0);
@@ -72,7 +74,7 @@ var PollView = function PollView(props) {
           }, props), "poll-item-".concat(option))
         });
       })
-    })]
+    }), loading && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.LinearProgress, {})]
   }));
 };
 

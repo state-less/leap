@@ -6,7 +6,12 @@ export type ModelProps = {
 
 export type PollProps = ServerComponentProps & {};
 
-export type PollViewProps = {
+export type ServerProps = {
+    loading: boolean;
+    error?: Error;
+};
+
+export type PollViewProps = ServerProps & {
     values: number[];
     votes: number[];
     vote: (n: number) => void;

@@ -1,6 +1,7 @@
 import {
     Alert,
     IconButton,
+    LinearProgress,
     List,
     ListItem,
     ListItemIcon,
@@ -29,7 +30,7 @@ export const PollModel = ({ View, ...rest }) => {
 };
 
 export const PollView: FunctionComponent<PollViewProps> = (props) => {
-    const { values, votes, error } = props;
+    const { values, votes, error, loading = !values } = props;
     const sum = (votes || []).reduce((a, b) => a + ~~b, 0);
 
     return (
@@ -52,6 +53,7 @@ export const PollView: FunctionComponent<PollViewProps> = (props) => {
                         );
                     })}
             </List>
+            {loading && <LinearProgress />}
         </Box>
     );
 };
