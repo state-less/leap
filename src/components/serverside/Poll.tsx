@@ -77,18 +77,6 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
 
     return (
         <ListItem dense>
-            <ListItemIcon>
-                <IconButton onClick={() => vote(index)}>
-                    {buttons((props, item) => {
-                        return (
-                            <spring.span style={{ ...props, height: 24 }}>
-                                {item ? <Favorite /> : <FavoriteBorderIcon />}
-                            </spring.span>
-                        );
-                    })}
-                </IconButton>
-            </ListItemIcon>
-
             <div
                 style={{
                     width: 'calc(100% - 16px)',
@@ -98,7 +86,7 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     backgroundColor: theme.palette.primary.light,
                     marginLeft: -8,
                     height: 'calc(100% - 4px)',
-                    zIndex: -1,
+                    // zIndex: -1,
                 }}
             />
 
@@ -110,10 +98,20 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                     marginLeft: -8,
                     opacity: 0.8,
                     height: 'calc(100% - 4px)',
-                    zIndex: -1,
+                    // zIndex: -1,
                 }}
             />
-
+            <ListItemIcon>
+                <IconButton onClick={() => vote(index)}>
+                    {buttons((props, item) => {
+                        return (
+                            <spring.span style={{ ...props, height: 24 }}>
+                                {item ? <Favorite /> : <FavoriteBorderIcon />}
+                            </spring.span>
+                        );
+                    })}
+                </IconButton>
+            </ListItemIcon>
             <ListItemText primary={option} secondary={(votes || [])[index]} />
         </ListItem>
     );

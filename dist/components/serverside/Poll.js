@@ -111,7 +111,27 @@ var PollItem = function PollItem(props) {
   });
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.ListItem, {
     dense: true,
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemIcon, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      style: {
+        width: 'calc(100% - 16px)',
+        position: 'absolute',
+        right: 8,
+        opacity: 0.3,
+        backgroundColor: theme.palette.primary.light,
+        marginLeft: -8,
+        height: 'calc(100% - 4px)' // zIndex: -1,
+
+      }
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactSpring.animated.div, {
+      style: _objectSpread(_objectSpread({}, style), {}, {
+        position: 'absolute',
+        backgroundColor: theme.palette.primary.main,
+        marginLeft: -8,
+        opacity: 0.8,
+        height: 'calc(100% - 4px)' // zIndex: -1,
+
+      })
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemIcon, {
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.IconButton, {
         onClick: function onClick() {
           return vote(index);
@@ -124,26 +144,6 @@ var PollItem = function PollItem(props) {
             children: item ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_Favorite.default, {}) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_FavoriteBorder.default, {})
           });
         })
-      })
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-      style: {
-        width: 'calc(100% - 16px)',
-        position: 'absolute',
-        right: 8,
-        opacity: 0.3,
-        backgroundColor: theme.palette.primary.light,
-        marginLeft: -8,
-        height: 'calc(100% - 4px)',
-        zIndex: -1
-      }
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactSpring.animated.div, {
-      style: _objectSpread(_objectSpread({}, style), {}, {
-        position: 'absolute',
-        backgroundColor: theme.palette.primary.main,
-        marginLeft: -8,
-        opacity: 0.8,
-        height: 'calc(100% - 4px)',
-        zIndex: -1
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemText, {
       primary: option,
