@@ -13,8 +13,6 @@ var _FavoriteBorder = _interopRequireDefault(require("@mui/icons-material/Favori
 
 var _Favorite = _interopRequireDefault(require("@mui/icons-material/Favorite"));
 
-var _react = require("@emotion/react");
-
 var _system = require("@mui/system");
 
 var _reactSpring = require("react-spring");
@@ -89,7 +87,7 @@ var PollItem = function PollItem(props) {
       index = props.index,
       _props$animated = props.animated,
       animated = _props$animated === void 0 ? true : _props$animated;
-  var theme = (0, _react.useTheme)();
+  var theme = (0, _material.useTheme)();
   var style = (0, _reactSpring.useSpring)({
     from: {
       width: 'calc(0% - 16px)'
