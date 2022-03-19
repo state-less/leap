@@ -9,7 +9,6 @@ export type PollProps = ServerComponentProps & {};
 export type ServerProps = {
     loading: boolean;
     error?: Error;
-    host?: string;
 };
 
 export type PollViewProps = ServerProps & {
@@ -42,4 +41,10 @@ export type PropsWithComponent = {
     Component: FunctionComponent<PollViewProps>;
 };
 
-export type ServerComponentProps = PropsWithName & PropsWithComponent;
+export type PropsWithHost = {
+    /** The component that  renders the server side props */
+    host?: string;
+};
+export type ServerComponentProps = PropsWithName &
+    PropsWithComponent &
+    PropsWithHost;
