@@ -9,6 +9,7 @@ export type PollProps = ServerComponentProps & {};
 export type ServerProps = {
     loading: boolean;
     error?: Error;
+    host?: string;
 };
 
 export type PollViewProps = ServerProps & {

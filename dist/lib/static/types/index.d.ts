@@ -6,6 +6,7 @@ export declare type PollProps = ServerComponentProps & {};
 export declare type ServerProps = {
     loading: boolean;
     error?: Error;
+    host?: string;
 };
 export declare type PollViewProps = ServerProps & {
     values: number[];
