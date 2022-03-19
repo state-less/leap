@@ -20,7 +20,7 @@ var _reactSpring = require("react-spring");
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["View"],
-    _excluded2 = ["name", "Component"];
+    _excluded2 = ["name", "host", "Component"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -166,12 +166,15 @@ exports.PollItem = PollItem;
 var Poll = function Poll(_ref2) {
   var _ref2$name = _ref2.name,
       name = _ref2$name === void 0 ? 'poll' : _ref2$name,
+      _ref2$host = _ref2.host,
+      host = _ref2$host === void 0 ? 'localhost' : _ref2$host,
       _ref2$Component = _ref2.Component,
       Component = _ref2$Component === void 0 ? PollView : _ref2$Component,
       props = _objectWithoutProperties(_ref2, _excluded2);
 
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
     name: name,
+    host: host,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(PollModel, _objectSpread({
       View: Component
     }, props))

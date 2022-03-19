@@ -304,6 +304,8 @@ var Comment = function Comment(_ref4) {
 var Comments = function Comments(_ref5) {
   var _ref5$name = _ref5.name,
       name = _ref5$name === void 0 ? 'comments' : _ref5$name,
+      _ref5$host = _ref5.host,
+      host = _ref5$host === void 0 ? 'localhost' : _ref5$host,
       pagination = _ref5.pagination,
       _ref5$pageSize = _ref5.pageSize,
       pageSize = _ref5$pageSize === void 0 ? 3 : _ref5$pageSize,
@@ -318,6 +320,7 @@ var Comments = function Comments(_ref5) {
   };
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
     name: name,
+    host: host,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentsModel, _objectSpread({
       View: Component
     }, props))

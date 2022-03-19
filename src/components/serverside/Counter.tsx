@@ -75,11 +75,12 @@ export const StarsView = (props) => {
  */
 export const Counter = ({
     name = 'counter',
+    host = 'localhost',
     Component = StarsView,
     ...props
 }) => {
     return (
-        <ServerComponent name={name}>
+        <ServerComponent name={name} host={host}>
             <CounterModel View={Component} {...props} />
         </ServerComponent>
     );

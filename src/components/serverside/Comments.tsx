@@ -254,6 +254,7 @@ const Comment = ({ name, Component = CommentView, ...rest }) => {
 
 export const Comments = ({
     name = 'comments',
+    host = 'localhost',
     pagination,
     pageSize = 3,
     compose = false,
@@ -262,7 +263,7 @@ export const Comments = ({
     const props = { pagination, pageSize, compose };
 
     return (
-        <ServerComponent name={name}>
+        <ServerComponent name={name} host={host}>
             <CommentsModel View={Component} {...props} />
         </ServerComponent>
     );

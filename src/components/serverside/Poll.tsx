@@ -128,11 +128,12 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
  */
 export const Poll: FunctionComponent<PollProps> = ({
     name = 'poll',
+    host = 'localhost',
     Component = PollView,
     ...props
 }) => {
     return (
-        <ServerComponent name={name}>
+        <ServerComponent name={name} host={host}>
             <PollModel View={Component} {...props} />
         </ServerComponent>
     );

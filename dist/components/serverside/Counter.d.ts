@@ -17,8 +17,9 @@ export declare const StarsView: (props: any) => JSX.Element;
 /**
  * Renders a simple Up / Down vote button as view for the counter.
  */
-export declare const Counter: ({ name, Component, ...props }: {
+export declare const Counter: ({ name, host, Component, ...props }: {
     [x: string]: any;
     name?: string;
+    host?: string;
     Component?: (props: any) => JSX.Element;
 }) => JSX.Element;

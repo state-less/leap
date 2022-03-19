@@ -20,8 +20,9 @@ export declare const CommentModel: ({ View, ...rest }: {
     [x: string]: any;
     View: any;
 }) => JSX.Element;
-export declare const Comments: ({ name, pagination, pageSize, compose, Component, }: {
+export declare const Comments: ({ name, host, pagination, pageSize, compose, Component, }: {
     name?: string;
+    host?: string;
     pagination: any;
     pageSize?: number;
     compose?: boolean;
