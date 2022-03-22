@@ -34,12 +34,14 @@ import { TranslatedAlert } from '../translated/Alert';
 import { ModelProps } from '../../lib/static/types';
 
 export type CommentsInterface = {
+    host: string;
     addComment: (text: string) => void;
     deleteComment: (text: string) => void;
 };
 
 export type CommentsProps = ModelProps & {
     View: FunctionComponent<CommentsInterface>;
+    host: string;
 };
 /**
  * Comments model. Gather's props and renders a View with it.
@@ -48,6 +50,7 @@ export type CommentsProps = ModelProps & {
  */
 export const CommentsModel: FunctionComponent<CommentsProps> = ({
     View,
+    host,
     ...rest
 }) => {
     const props = useProps();
@@ -60,6 +63,7 @@ export const CommentsModel: FunctionComponent<CommentsProps> = ({
             {...rest}
             addComment={addComment}
             deleteComment={deleteComment}
+            host={host}
         />
     );
 };
@@ -72,6 +76,7 @@ export const CommentsView: FunctionComponent<any> = (props) => {
         pagination,
         pageSize,
         compose = false,
+        host = 'stateless',
         /** @deprecated */
         markdown = false,
     } = props;
@@ -102,6 +107,7 @@ export const CommentsView: FunctionComponent<any> = (props) => {
                             return (
                                 <Comment
                                     key={commentData.id}
+                                    host={host}
                                     name={`comment-${commentData.id}`}
                                     {...commentData}
                                     deleteComment={deleteComment}
@@ -263,7 +269,7 @@ export const Comments = ({
 
     return (
         <ServerComponent name={name} host={host}>
-            <CommentsModel View={Component} {...props} />
+            <CommentsModel host={host} View={Component} {...props} />
         </ServerComponent>
     );
 };

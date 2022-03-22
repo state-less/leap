@@ -27,7 +27,7 @@ var _Alert = require("../translated/Alert");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var _excluded = ["View"],
+var _excluded = ["View", "host"],
     _excluded2 = ["View"],
     _excluded3 = ["name", "Component", "host"];
 
@@ -64,6 +64,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
  */
 var CommentsModel = function CommentsModel(_ref) {
   var View = _ref.View,
+      host = _ref.host,
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var props = (0, _reactClient.useProps)();
@@ -72,7 +73,8 @@ var CommentsModel = function CommentsModel(_ref) {
 
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(View, _objectSpread(_objectSpread(_objectSpread({}, props), rest), {}, {
     addComment: addComment,
-    deleteComment: deleteComment
+    deleteComment: deleteComment,
+    host: host
   }));
 };
 
@@ -86,6 +88,8 @@ var CommentsView = function CommentsView(props) {
       pageSize = props.pageSize,
       _props$compose = props.compose,
       compose = _props$compose === void 0 ? false : _props$compose,
+      _props$host = props.host,
+      host = _props$host === void 0 ? 'stateless' : _props$host,
       _props$markdown = props.markdown,
       markdown = _props$markdown === void 0 ? false : _props$markdown;
 
@@ -116,6 +120,7 @@ var CommentsView = function CommentsView(props) {
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.List, {
       children: comments && comments.slice && comments.slice().reverse().slice(-pageSize + page * pageSize, page * pageSize).map(function (commentData) {
         return /*#__PURE__*/(0, _jsxRuntime.jsx)(Comment, _objectSpread(_objectSpread({
+          host: host,
           name: "comment-".concat(commentData.id)
         }, commentData), {}, {
           deleteComment: deleteComment
@@ -316,6 +321,7 @@ var Comments = function Comments(_ref5) {
     name: name,
     host: host,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentsModel, _objectSpread({
+      host: host,
       View: Component
     }, props))
   });

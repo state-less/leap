@@ -1,11 +1,13 @@
 import { FunctionComponent } from 'react';
 import { ModelProps } from '../../lib/static/types';
 export declare type CommentsInterface = {
+    host: string;
     addComment: (text: string) => void;
     deleteComment: (text: string) => void;
 };
 export declare type CommentsProps = ModelProps & {
     View: FunctionComponent<CommentsInterface>;
+    host: string;
 };
 /**
  * Comments model. Gather's props and renders a View with it.
