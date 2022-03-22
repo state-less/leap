@@ -21,8 +21,6 @@ import {
     useProps,
 } from '@state-less/react-client';
 
-import MDEditor from '@uiw/react-md-editor';
-
 import { FunctionComponent, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 
@@ -66,7 +64,7 @@ export const CommentsModel: FunctionComponent<CommentsProps> = ({
     );
 };
 
-export const CommentsView = (props) => {
+export const CommentsView: FunctionComponent<any> = (props) => {
     const {
         comments,
         addComment,
@@ -74,6 +72,7 @@ export const CommentsView = (props) => {
         pagination,
         pageSize,
         compose = false,
+        /** @deprecated */
         markdown = false,
     } = props;
 
@@ -120,12 +119,6 @@ export const CommentsView = (props) => {
             {compose && (
                 <>
                     <CardContent>
-                        {markdown && (
-                            <MDEditor
-                                value={comment}
-                                onChange={(e) => setComment(e)}
-                            />
-                        )}
                         {!markdown && (
                             <TextField
                                 disabled={addComment.disabled}

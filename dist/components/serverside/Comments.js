@@ -9,8 +9,6 @@ var _material = require("@mui/material");
 
 var _reactClient = require("@state-less/react-client");
 
-var _reactMdEditor = _interopRequireDefault(require("@uiw/react-md-editor"));
-
 var _react = require("react");
 
 var _reactSpring = require("react-spring");
@@ -32,8 +30,6 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _excluded = ["View"],
     _excluded2 = ["View"],
     _excluded3 = ["name", "Component"];
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -133,12 +129,7 @@ var CommentsView = function CommentsView(props) {
       }
     }), compose && /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.CardContent, {
-        children: [markdown && /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactMdEditor.default, {
-          value: comment,
-          onChange: function onChange(e) {
-            return setComment(e);
-          }
-        }), !markdown && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.TextField, {
+        children: [!markdown && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.TextField, {
           disabled: addComment.disabled,
           multiline: true,
           value: comment,

@@ -13,7 +13,7 @@ export declare type CommentsProps = ModelProps & {
  * @returns
  */
 export declare const CommentsModel: FunctionComponent<CommentsProps>;
-export declare const CommentsView: (props: any) => JSX.Element;
+export declare const CommentsView: FunctionComponent<any>;
 export declare const CommentMarkdown: (props: any) => JSX.Element;
 export declare const CommentView: (props: any) => JSX.Element;
 export declare const CommentModel: ({ View, ...rest }: {
@@ -26,5 +26,5 @@ export declare const Comments: ({ name, host, pagination, pageSize, compose, Com
     pagination: any;
     pageSize?: number;
     compose?: boolean;
-    Component?: (props: any) => JSX.Element;
+    Component?: FunctionComponent<any>;
 }) => JSX.Element;
