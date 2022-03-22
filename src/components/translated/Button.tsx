@@ -1,17 +1,11 @@
-import { Button, ButtonProps } from "@mui/material";
-import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
+import { Button, ButtonProps } from '@mui/material';
+import { FunctionComponent } from 'react';
+import { withTranslation } from '.';
 
 type TranslatedButtonProps = ButtonProps & {
-  label?: string;
-  children?: string;
+    label?: string;
+    children?: string;
 };
-
-export const TranslatedButton: FunctionComponent<TranslatedButtonProps> = (
-  props
-) => {
-  const { children, label, ...rest } = props;
-  const { t } = useTranslation();
-
-  return <Button {...rest}>{t(label || children || '')}</Button>;
-};
+const props = ['children', 'label'];
+export const TranslatedButton: FunctionComponent<TranslatedButtonProps> =
+    withTranslation(Button, props);

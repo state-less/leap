@@ -1,10 +1,10 @@
-import { Tooltip, Typography } from '@mui/material';
+import { Tooltip, Typography, TypographyProps } from '@mui/material';
 import moment, { MomentBuiltinFormat } from 'moment';
 import { FunctionComponent } from 'react';
 import { TranslatedTooltip } from './translated/Tooltip';
 
-export type DateProps = {
-    children: string;
+export type DateProps = TypographyProps & {
+    children: string | number;
     format?: string;
     /** Renders the date relative to now e.g. "2 hours ago" */
     fromNow?: boolean;

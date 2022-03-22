@@ -1,5 +1,5 @@
-import { ButtonProps } from "@mui/material";
-import { FunctionComponent } from "react";
+import { ButtonProps } from '@mui/material';
+import { FunctionComponent } from 'react';
 declare type TranslatedButtonProps = ButtonProps & {
     label?: string;
     children?: string;

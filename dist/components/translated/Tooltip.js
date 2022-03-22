@@ -35,7 +35,7 @@ var TranslatedTooltip = function TranslatedTooltip(_ref) {
   }, rest), {}, {
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
       style: {
-        width: '100%'
+        width: "100%"
       },
       children: rest.children
     })
