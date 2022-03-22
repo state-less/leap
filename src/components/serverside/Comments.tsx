@@ -237,11 +237,16 @@ export const CommentModel = ({ View, ...rest }) => {
     return <View {...props} {...rest} deleteComment={del} />;
 };
 
-const Comment = ({ name, Component = CommentView, ...rest }) => {
+const Comment = ({
+    name,
+    Component = CommentView,
+    host = 'stateless',
+    ...rest
+}) => {
     if (!name) throw new Error('Comment needs a property "name"');
     return (
         <ServerComponent name={name}>
-            <CommentModel View={Component} {...rest} />
+            <CommentModel host={host} View={Component} {...rest} />
         </ServerComponent>
     );
 };

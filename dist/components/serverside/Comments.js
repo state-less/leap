@@ -29,7 +29,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["View"],
     _excluded2 = ["View"],
-    _excluded3 = ["name", "Component"];
+    _excluded3 = ["name", "Component", "host"];
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -281,12 +281,15 @@ var Comment = function Comment(_ref4) {
   var name = _ref4.name,
       _ref4$Component = _ref4.Component,
       Component = _ref4$Component === void 0 ? CommentView : _ref4$Component,
+      _ref4$host = _ref4.host,
+      host = _ref4$host === void 0 ? 'stateless' : _ref4$host,
       rest = _objectWithoutProperties(_ref4, _excluded3);
 
   if (!name) throw new Error('Comment needs a property "name"');
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
     name: name,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentModel, _objectSpread({
+      host: host,
       View: Component
     }, rest))
   });
