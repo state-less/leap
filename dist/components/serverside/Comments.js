@@ -287,9 +287,9 @@ var Comment = function Comment(_ref4) {
 
   if (!name) throw new Error('Comment needs a property "name"');
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
+    host: host,
     name: name,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentModel, _objectSpread({
-      host: host,
       View: Component
     }, rest))
   });

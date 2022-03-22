@@ -245,8 +245,8 @@ const Comment = ({
 }) => {
     if (!name) throw new Error('Comment needs a property "name"');
     return (
-        <ServerComponent name={name}>
-            <CommentModel host={host} View={Component} {...rest} />
+        <ServerComponent host={host} name={name}>
+            <CommentModel View={Component} {...rest} />
         </ServerComponent>
     );
 };
