@@ -139,7 +139,6 @@ var CommentsView = function CommentsView(props) {
           fullWidth: true
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button.TranslatedButton, {
           disabled: addComment.disabled,
-          label: "BUTTON_COMMENT_ADD",
           color: "primary",
           onClick: /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -167,7 +166,8 @@ var CommentsView = function CommentsView(props) {
                 }
               }
             }, _callee, null, [[0, 7]]);
-          }))
+          })),
+          children: "BUTTON_COMMENT_ADD"
         })]
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.CardActions, {})]
     })]

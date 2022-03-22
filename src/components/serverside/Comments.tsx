@@ -130,7 +130,6 @@ export const CommentsView: FunctionComponent<any> = (props) => {
                         )}
                         <TranslatedButton
                             disabled={addComment.disabled}
-                            label="BUTTON_COMMENT_ADD"
                             color="primary"
                             onClick={async () => {
                                 try {
@@ -141,7 +140,9 @@ export const CommentsView: FunctionComponent<any> = (props) => {
                                     setError(e);
                                 }
                             }}
-                        />
+                        >
+                            BUTTON_COMMENT_ADD
+                        </TranslatedButton>
                     </CardContent>
                     <CardActions />
                 </>

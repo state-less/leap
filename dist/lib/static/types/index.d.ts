@@ -32,7 +32,7 @@ export declare type PropsWithName = {
 };
 export declare type PropsWithComponent = {
     /** The component that  renders the server side props */
-    Component: FunctionComponent<PollViewProps>;
+    Component?: FunctionComponent<PollViewProps>;
 };
 export declare type PropsWithHost = {
     /** The component that  renders the server side props */

@@ -38,7 +38,7 @@ export type PropsWithName = {
 };
 export type PropsWithComponent = {
     /** The component that  renders the server side props */
-    Component: FunctionComponent<PollViewProps>;
+    Component?: FunctionComponent<PollViewProps>;
 };
 
 export type PropsWithHost = {
