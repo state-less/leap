@@ -9,11 +9,15 @@ var _material = require("@mui/material");
 
 var _clsx = _interopRequireDefault(require("clsx"));
 
-var _util = require("../../util");
+var _util = require("../../lib/util");
+
+var _Button = require("../translated/Button");
+
+var _reactI18next = require("react-i18next");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var _excluded = ["children", "t"];
+var _excluded = ["children"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,7 +42,6 @@ var translate = Function.prototype;
 
 /**
  * A button that attempts fingerprint based authentication against a react-server.
- * @param t - Optional translation function from react-i18n.
  * @returns
  */
 var FingerprintButton = function FingerprintButton(_ref) {
@@ -46,8 +49,6 @@ var FingerprintButton = function FingerprintButton(_ref) {
 
   var _ref$children = _ref.children,
       children = _ref$children === void 0 ? null : _ref$children,
-      _ref$t = _ref.t,
-      t = _ref$t === void 0 ? null : _ref$t,
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var _useClientContext = useClientContext(),
@@ -55,6 +56,9 @@ var FingerprintButton = function FingerprintButton(_ref) {
 
   var _useAuth = useAuth(fingerprintStrategy),
       authenticate = _useAuth.authenticate;
+
+  var _useTranslation = (0, _reactI18next.useTranslation)(),
+      t = _useTranslation.t;
 
   var color = (0, _clsx.default)({
     success: identity === null || identity === void 0 ? void 0 : identity.fingerprint,
@@ -64,7 +68,7 @@ var FingerprintButton = function FingerprintButton(_ref) {
   var tooltipTitle = t ? t(TITLE_TOOLTIP_AUTH) : TITLE_TOOLTIP_AUTH;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Tooltip, {
     title: tooltipTitle,
-    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Button, _objectSpread(_objectSpread({
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button.TranslatedButton, _objectSpread(_objectSpread({
       color: color,
       variant: "contained",
       onClick: function onClick() {

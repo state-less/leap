@@ -5,29 +5,28 @@ const {
     useAuth,
     fingerprintStrategy,
 } = require('@state-less/react-client');
-import { truncateMid } from '../../util';
+import { truncateMid } from '../../lib/util';
 import { FunctionComponent } from 'react';
+import { TranslatedButton } from '../translated/Button';
+import { useTranslation } from 'react-i18next';
 
 const LABEL_BUTTON = 'Fingerprint';
 const TITLE_TOOLTIP_AUTH = 'Authenticated';
 const translate = Function.prototype;
 
-type FingerPrintButtonProps = {
-    t: Function | null;
-};
+type FingerPrintButtonProps = ButtonProps & {};
 /**
  * A button that attempts fingerprint based authentication against a react-server.
- * @param t - Optional translation function from react-i18n.
  * @returns
  */
 export const FingerprintButton: FunctionComponent<FingerPrintButtonProps> = ({
     children = null,
-    t = null,
     ...rest
 }) => {
     const { identity } = useClientContext();
     const { authenticate } = useAuth(fingerprintStrategy);
-
+    const { t } = useTranslation();
+    
     const color = clsx({
         success: identity?.fingerprint,
         warning: !identity?.fingerprint,
@@ -41,14 +40,14 @@ export const FingerprintButton: FunctionComponent<FingerPrintButtonProps> = ({
 
     return (
         <Tooltip title={tooltipTitle}>
-            <Button
+            <TranslatedButton
                 color={color}
                 variant="contained"
                 onClick={() => authenticate()}
                 {...rest}
             >
                 {text}
-            </Button>
+            </TranslatedButton>
         </Tooltip>
     );
 };

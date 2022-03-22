@@ -1,10 +1,8 @@
+import { ButtonProps } from '@mui/material';
 import { FunctionComponent } from 'react';
-declare type FingerPrintButtonProps = {
-    t: Function | null;
-};
+declare type FingerPrintButtonProps = ButtonProps & {};
 /**
  * A button that attempts fingerprint based authentication against a react-server.
- * @param t - Optional translation function from react-i18n.
  * @returns
  */
 export declare const FingerprintButton: FunctionComponent<FingerPrintButtonProps>;

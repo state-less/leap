@@ -6,7 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 var _exportNames = {
   Poll: true,
   Comments: true,
-  FingerprintButton: true
+  Counter: true,
+  FingerprintButton: true,
+  GoogleButton: true,
+  LoginMenuButton: true,
+  LogoutButton: true,
+  WebAuthnButton: true
 };
 Object.defineProperty(exports, "Comments", {
   enumerable: true,
@@ -14,10 +19,34 @@ Object.defineProperty(exports, "Comments", {
     return _serverside.Comments;
   }
 });
+Object.defineProperty(exports, "Counter", {
+  enumerable: true,
+  get: function get() {
+    return _serverside.Counter;
+  }
+});
 Object.defineProperty(exports, "FingerprintButton", {
   enumerable: true,
   get: function get() {
-    return _FingerPrintButton.FingerprintButton;
+    return _buttons.FingerprintButton;
+  }
+});
+Object.defineProperty(exports, "GoogleButton", {
+  enumerable: true,
+  get: function get() {
+    return _buttons.GoogleButton;
+  }
+});
+Object.defineProperty(exports, "LoginMenuButton", {
+  enumerable: true,
+  get: function get() {
+    return _buttons.LoginMenuButton;
+  }
+});
+Object.defineProperty(exports, "LogoutButton", {
+  enumerable: true,
+  get: function get() {
+    return _buttons.LogoutButton;
   }
 });
 Object.defineProperty(exports, "Poll", {
@@ -26,10 +55,16 @@ Object.defineProperty(exports, "Poll", {
     return _serverside.Poll;
   }
 });
+Object.defineProperty(exports, "WebAuthnButton", {
+  enumerable: true,
+  get: function get() {
+    return _buttons.WebAuthnButton;
+  }
+});
 
 var _serverside = require("./components/serverside");
 
-var _FingerPrintButton = require("./components/buttons/FingerPrintButton");
+var _buttons = require("./components/buttons");
 
 var _TestComponent = require("./components/TestComponent");
 
