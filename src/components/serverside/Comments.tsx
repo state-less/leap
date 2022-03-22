@@ -171,7 +171,14 @@ const truncateName = (name = '') => {
 };
 
 export const CommentView = (props) => {
-    const { deleteComment, createdAt, owner = null, id, error } = props;
+    const {
+        deleteComment,
+        createdAt,
+        owner = null,
+        host = 'stateless',
+        id,
+        error,
+    } = props;
     const styles = useSpring({
         from: { opacity: 0 },
         to: { opacity: 1 },
@@ -183,7 +190,7 @@ export const CommentView = (props) => {
                     <Alert severity="error">{error.message}</Alert>
                 )}
                 <div className="flex">
-                    <ServerComponent name={`counter-comment-${id}`}>
+                    <ServerComponent host={host} name={`counter-comment-${id}`}>
                         <CounterModel View={Votes} />
                     </ServerComponent>
                     <CardContent />
@@ -236,11 +243,11 @@ export const CommentView = (props) => {
         </animated.div>
     );
 };
-export const CommentModel = ({ View, ...rest }) => {
+export const CommentModel = ({ View, host = 'stateless', ...rest }) => {
     const props = useProps();
     const del = useAction('deleteComment', 'onClick');
     // return <>Props {JSON.stringify(props)}</>
-    return <View {...props} {...rest} deleteComment={del} />;
+    return <View {...props} host={host} {...rest} deleteComment={del} />;
 };
 
 const Comment = ({
@@ -252,7 +259,7 @@ const Comment = ({
     if (!name) throw new Error('Comment needs a property "name"');
     return (
         <ServerComponent host={host} name={name}>
-            <CommentModel View={Component} {...rest} />
+            <CommentModel host={host} View={Component} {...rest} />
         </ServerComponent>
     );
 };

@@ -28,7 +28,7 @@ var _Alert = require("../translated/Alert");
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["View", "host"],
-    _excluded2 = ["View"],
+    _excluded2 = ["View", "host"],
     _excluded3 = ["name", "Component", "host"];
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -202,6 +202,8 @@ var CommentView = function CommentView(props) {
       createdAt = props.createdAt,
       _props$owner = props.owner,
       owner = _props$owner === void 0 ? null : _props$owner,
+      _props$host2 = props.host,
+      host = _props$host2 === void 0 ? 'stateless' : _props$host2,
       id = props.id,
       error = props.error;
   var styles = (0, _reactSpring.useSpring)({
@@ -221,6 +223,7 @@ var CommentView = function CommentView(props) {
       }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: "flex",
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
+          host: host,
           name: "counter-comment-".concat(id),
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Counter2.CounterModel, {
             View: _Counter.Votes
@@ -270,12 +273,16 @@ exports.CommentView = CommentView;
 
 var CommentModel = function CommentModel(_ref3) {
   var View = _ref3.View,
+      _ref3$host = _ref3.host,
+      host = _ref3$host === void 0 ? 'stateless' : _ref3$host,
       rest = _objectWithoutProperties(_ref3, _excluded2);
 
   var props = (0, _reactClient.useProps)();
   var del = (0, _reactClient.useAction)('deleteComment', 'onClick'); // return <>Props {JSON.stringify(props)}</>
 
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(View, _objectSpread(_objectSpread(_objectSpread({}, props), rest), {}, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(View, _objectSpread(_objectSpread(_objectSpread({}, props), {}, {
+    host: host
+  }, rest), {}, {
     deleteComment: del
   }));
 };
@@ -295,6 +302,7 @@ var Comment = function Comment(_ref4) {
     host: host,
     name: name,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CommentModel, _objectSpread({
+      host: host,
       View: Component
     }, rest))
   });
