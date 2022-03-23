@@ -16,7 +16,7 @@ import { ButtonStatusColor } from '../../types/button';
 
 export const MetaMaskButton = ({
   children = null,
-  host = 'stateless',
+  host = null,
   ...rest
 }) => {
   const rcc = useClientContext();

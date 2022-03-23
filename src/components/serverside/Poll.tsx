@@ -128,7 +128,7 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
  */
 export const Poll: FunctionComponent<PollProps> = ({
     name = 'poll',
-    host = 'localhost',
+    host = null,
     Component = PollView,
     ...props
 }) => {

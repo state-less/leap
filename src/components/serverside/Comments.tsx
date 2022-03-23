@@ -76,7 +76,7 @@ export const CommentsView: FunctionComponent<any> = (props) => {
         pagination,
         pageSize,
         compose = false,
-        host = 'stateless',
+        host = null,
         /** @deprecated */
         markdown = false,
     } = props;
@@ -175,7 +175,7 @@ export const CommentView = (props) => {
         deleteComment,
         createdAt,
         owner = null,
-        host = 'stateless',
+        host = null,
         id,
         error,
     } = props;
@@ -243,7 +243,7 @@ export const CommentView = (props) => {
         </animated.div>
     );
 };
-export const CommentModel = ({ View, host = 'stateless', ...rest }) => {
+export const CommentModel = ({ View, host = null, ...rest }) => {
     const props = useProps();
     const del = useAction('deleteComment', 'onClick');
     // return <>Props {JSON.stringify(props)}</>
@@ -253,7 +253,7 @@ export const CommentModel = ({ View, host = 'stateless', ...rest }) => {
 const Comment = ({
     name,
     Component = CommentView,
-    host = 'stateless',
+    host = null,
     ...rest
 }) => {
     if (!name) throw new Error('Comment needs a property "name"');
@@ -266,7 +266,7 @@ const Comment = ({
 
 export const Comments = ({
     name = 'comments',
-    host = 'localhost',
+    host = null,
     pagination,
     pageSize = 3,
     compose = false,

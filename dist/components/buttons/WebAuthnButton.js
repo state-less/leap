@@ -39,7 +39,7 @@ var WebAuthnButton = function WebAuthnButton(_ref) {
       _ref$auto = _ref.auto,
       auto = _ref$auto === void 0 ? false : _ref$auto,
       _ref$host = _ref.host,
-      host = _ref$host === void 0 ? 'stateless' : _ref$host,
+      host = _ref$host === void 0 ? null : _ref$host,
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var _ref2 = (0, _reactClient.useClientContext)(),

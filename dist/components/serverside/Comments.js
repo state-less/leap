@@ -89,7 +89,7 @@ var CommentsView = function CommentsView(props) {
       _props$compose = props.compose,
       compose = _props$compose === void 0 ? false : _props$compose,
       _props$host = props.host,
-      host = _props$host === void 0 ? 'stateless' : _props$host,
+      host = _props$host === void 0 ? null : _props$host,
       _props$markdown = props.markdown,
       markdown = _props$markdown === void 0 ? false : _props$markdown;
 
@@ -203,7 +203,7 @@ var CommentView = function CommentView(props) {
       _props$owner = props.owner,
       owner = _props$owner === void 0 ? null : _props$owner,
       _props$host2 = props.host,
-      host = _props$host2 === void 0 ? 'stateless' : _props$host2,
+      host = _props$host2 === void 0 ? null : _props$host2,
       id = props.id,
       error = props.error;
   var styles = (0, _reactSpring.useSpring)({
@@ -274,7 +274,7 @@ exports.CommentView = CommentView;
 var CommentModel = function CommentModel(_ref3) {
   var View = _ref3.View,
       _ref3$host = _ref3.host,
-      host = _ref3$host === void 0 ? 'stateless' : _ref3$host,
+      host = _ref3$host === void 0 ? null : _ref3$host,
       rest = _objectWithoutProperties(_ref3, _excluded2);
 
   var props = (0, _reactClient.useProps)();
@@ -294,7 +294,7 @@ var Comment = function Comment(_ref4) {
       _ref4$Component = _ref4.Component,
       Component = _ref4$Component === void 0 ? CommentView : _ref4$Component,
       _ref4$host = _ref4.host,
-      host = _ref4$host === void 0 ? 'stateless' : _ref4$host,
+      host = _ref4$host === void 0 ? null : _ref4$host,
       rest = _objectWithoutProperties(_ref4, _excluded3);
 
   if (!name) throw new Error('Comment needs a property "name"');
@@ -312,7 +312,7 @@ var Comments = function Comments(_ref5) {
   var _ref5$name = _ref5.name,
       name = _ref5$name === void 0 ? 'comments' : _ref5$name,
       _ref5$host = _ref5.host,
-      host = _ref5$host === void 0 ? 'localhost' : _ref5$host,
+      host = _ref5$host === void 0 ? null : _ref5$host,
       pagination = _ref5.pagination,
       _ref5$pageSize = _ref5.pageSize,
       pageSize = _ref5$pageSize === void 0 ? 3 : _ref5$pageSize,

@@ -13,7 +13,7 @@ import { TranslatedTooltip } from '../translated/Tooltip';
 export const WebAuthnButton = ({
     children = null,
     auto = false,
-    host = 'stateless',
+    host = null,
     ...rest
 }) => {
     const { identity } = useClientContext() as any;

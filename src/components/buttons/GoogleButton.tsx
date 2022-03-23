@@ -64,7 +64,7 @@ type GoogleButtonProps = ButtonProps & {
 export const GoogleButton: FunctionComponent<GoogleButtonProps> = ({
     clientId = GOOGLE_CLIENT || '',
     auto = false,
-    host = 'stateless',
+    host = null,
     ...rest
 }) => {
     const rcc = useClientContext() as any;

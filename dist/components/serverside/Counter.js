@@ -120,7 +120,7 @@ var Counter = function Counter(_ref2) {
   var _ref2$name = _ref2.name,
       name = _ref2$name === void 0 ? 'counter' : _ref2$name,
       _ref2$host = _ref2.host,
-      host = _ref2$host === void 0 ? 'localhost' : _ref2$host,
+      host = _ref2$host === void 0 ? null : _ref2$host,
       _ref2$Component = _ref2.Component,
       Component = _ref2$Component === void 0 ? StarsView : _ref2$Component,
       props = _objectWithoutProperties(_ref2, _excluded3);

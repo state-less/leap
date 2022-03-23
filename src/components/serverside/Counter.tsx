@@ -75,7 +75,7 @@ export const StarsView = (props) => {
  */
 export const Counter = ({
     name = 'counter',
-    host = 'localhost',
+    host = null,
     Component = StarsView,
     ...props
 }) => {

@@ -1,6 +1,6 @@
 /// <reference types="react" />
 export declare const LogoutButton: ({ host, auto, ...rest }: {
     [x: string]: any;
-    host?: string;
+    host?: any;
     auto?: boolean;
 }) => JSX.Element;

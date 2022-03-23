@@ -20,6 +20,6 @@ export declare const StarsView: (props: any) => JSX.Element;
 export declare const Counter: ({ name, host, Component, ...props }: {
     [x: string]: any;
     name?: string;
-    host?: string;
+    host?: any;
     Component?: (props: any) => JSX.Element;
 }) => JSX.Element;

@@ -62,7 +62,7 @@ var MetaMaskButton = function MetaMaskButton(_ref) {
   var _ref$children = _ref.children,
       children = _ref$children === void 0 ? null : _ref$children,
       _ref$host = _ref.host,
-      host = _ref$host === void 0 ? 'stateless' : _ref$host,
+      host = _ref$host === void 0 ? null : _ref$host,
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var rcc = (0, _reactClient.useClientContext)();

@@ -5,7 +5,7 @@ import { TranslatedButton } from '../translated/Button';
 
 const noopStrat = () => ({ logout: noop });
 
-export const LogoutButton = ({ host = 'stateless', auto = false, ...rest }) => {
+export const LogoutButton = ({ host = null, auto = false, ...rest }) => {
     const { identity } = useClientContext();
     const { logout } = useAuth(noopStrat as any, {
         host,
