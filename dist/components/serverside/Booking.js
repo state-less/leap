@@ -298,7 +298,9 @@ var Appointment = function Appointment(props) {
 
   var id = props.id,
       startDate = props.startDate,
-      booker = props.booker;
+      booker = props.booker,
+      bookers = props.bookers,
+      flags = props.flags;
   var dt = new Date(startDate);
   var fromNow = (0, _moment.default)(dt).fromNow();
 
@@ -332,6 +334,12 @@ var Appointment = function Appointment(props) {
             children: fromNow
           })
         })
+      }), Object.keys(flags).map(function (flag) {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemIcon, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
+            label: flag
+          })
+        });
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemSecondaryAction, {
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.IconButton, {
           onClick: function onClick(e) {
@@ -370,7 +378,9 @@ var AppointmentsList = function AppointmentsList(_ref2) {
         return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
           name: "appointment-".concat(id),
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Appointment, _objectSpread(_objectSpread({}, a), {}, {
-            id: id
+            id: id,
+            bookers: bookers,
+            flags: flags
           }))
         });
       }), isAdmin && appointments && appointments.map(function (_ref4) {
@@ -380,7 +390,9 @@ var AppointmentsList = function AppointmentsList(_ref2) {
         return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactClient.ServerComponent, {
           name: "appointment-".concat(id),
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Appointment, _objectSpread(_objectSpread({}, a), {}, {
-            id: id
+            id: id,
+            bookers: bookers,
+            flags: flags
           }))
         });
       })]

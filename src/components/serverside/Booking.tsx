@@ -249,7 +249,7 @@ const MoreMenu = ({ onClick, id }) => {
 };
 
 const Appointment = (props) => {
-    const { id, startDate, booker } = props;
+    const { id, startDate, booker, bookers, flags } = props;
     const dt = new Date(startDate);
     const fromNow = moment(dt).fromNow();
     const [anchorEl, setAnchor] = useState(null);
@@ -301,6 +301,14 @@ const Appointment = (props) => {
                     }
                 />
 
+                {Object.keys(flags).map((flag) => {
+                    return (
+                        <ListItemIcon>
+                            <Chip label={flag} />
+                        </ListItemIcon>
+                    );
+                })}
+
                 <ListItemSecondaryAction>
                     <IconButton onClick={(e) => setAnchor(e.target)}>
                         <MoreIcon />
@@ -331,14 +339,24 @@ export const AppointmentsList = ({
                     bookings &&
                     bookings.map(({ id, ...a }) => (
                         <ServerComponent name={`appointment-${id}`}>
-                            <Appointment {...a} id={id} />
+                            <Appointment
+                                {...a}
+                                id={id}
+                                bookers={bookers}
+                                flags={flags}
+                            />
                         </ServerComponent>
                     ))}
                 {isAdmin &&
                     appointments &&
                     appointments.map(({ id, ...a }) => (
                         <ServerComponent name={`appointment-${id}`}>
-                            <Appointment {...a} id={id} />
+                            <Appointment
+                                {...a}
+                                id={id}
+                                bookers={bookers}
+                                flags={flags}
+                            />
                         </ServerComponent>
                     ))}
             </List>
@@ -472,7 +490,9 @@ export const BookingDatePicker = (props) => {
                                 <Typography variant="h6">
                                     {t('APT_PARTICIPANTS')}
                                 </Typography>
-                                {hostIdentity && <IdentityChip {...hostIdentity} />}
+                                {hostIdentity && (
+                                    <IdentityChip {...hostIdentity} />
+                                )}
                                 {identity?.address?.name && (
                                     <IdentityChip {...identity?.address} />
                                 )}
