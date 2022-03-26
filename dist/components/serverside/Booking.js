@@ -470,8 +470,8 @@ var BookingDatePicker = function BookingDatePicker(props) {
       availableDays = _props$availableDays2 === void 0 ? [] : _props$availableDays2,
       _props$appointments2 = props.appointments,
       appointments = _props$appointments2 === void 0 ? [] : _props$appointments2,
-      _props$host = props.host,
-      host = _props$host === void 0 ? null : _props$host,
+      _props$hostIdentity = props.hostIdentity,
+      hostIdentity = _props$hostIdentity === void 0 ? null : _props$hostIdentity,
       book = props.book,
       _props$flags = props.flags;
   _props$flags = _props$flags === void 0 ? {} : _props$flags;
@@ -553,7 +553,7 @@ var BookingDatePicker = function BookingDatePicker(props) {
               children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
                 variant: "h6",
                 children: t('APT_PARTICIPANTS')
-              }), host && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, host)), (identity === null || identity === void 0 ? void 0 : (_identity$address = identity.address) === null || _identity$address === void 0 ? void 0 : _identity$address.name) && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, identity === null || identity === void 0 ? void 0 : identity.address)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
+              }), hostIdentity && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, hostIdentity)), (identity === null || identity === void 0 ? void 0 : (_identity$address = identity.address) === null || _identity$address === void 0 ? void 0 : _identity$address.name) && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, identity === null || identity === void 0 ? void 0 : identity.address)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
                 variant: "h6",
                 children: t('APT_APPOINTMENTS', {
                   n: appointments === null || appointments === void 0 ? void 0 : appointments.length

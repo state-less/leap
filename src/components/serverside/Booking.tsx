@@ -413,7 +413,7 @@ export const BookingDatePicker = (props) => {
         usedDemo = false,
         availableDays = [],
         appointments = [],
-        host = null,
+        hostIdentity = null,
         book,
         flags: { showRecurring, showDemo } = {},
     } = props;
@@ -472,7 +472,7 @@ export const BookingDatePicker = (props) => {
                                 <Typography variant="h6">
                                     {t('APT_PARTICIPANTS')}
                                 </Typography>
-                                {host && <IdentityChip {...host} />}
+                                {hostIdentity && <IdentityChip {...hostIdentity} />}
                                 {identity?.address?.name && (
                                     <IdentityChip {...identity?.address} />
                                 )}
