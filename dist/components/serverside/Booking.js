@@ -322,7 +322,7 @@ var Appointment = function Appointment(props) {
           })
         })
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemText, {
-        primary: booker.name || id,
+        primary: (booker === null || booker === void 0 ? void 0 : booker.name) || id,
         secondary: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Tooltip, {
           title: DateFns.format(dt, 'dd.MM.yy hh:mm'),
           placement: "top-start",
@@ -404,18 +404,20 @@ var AppointmentCalendar = function AppointmentCalendar(props) {
       appointments = _props$appointments === void 0 ? [] : _props$appointments,
       _props$bookings = props.bookings,
       bookings = _props$bookings === void 0 ? [] : _props$bookings,
+      _props$bookers = props.bookers,
+      bookers = _props$bookers === void 0 ? {} : _props$bookers,
       startDate = props.startDate,
       endDate = props.endDate,
       duration = props.duration;
   var start = startDate || new Date();
   var end = endDate || new Date();
   var apts = (bookings || []).map(function (_ref5) {
-    var booker = _ref5.booker,
-        id = _ref5.id,
+    var id = _ref5.id,
         startDate = _ref5.startDate,
         endDate = _ref5.endDate;
+    var booker = bookers[id];
     return {
-      title: booker.name,
+      title: booker === null || booker === void 0 ? void 0 : booker.name,
       id: id,
       startDate: new Date(startDate),
       endDate: DateFns.addMinutes(new Date(startDate), duration)

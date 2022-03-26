@@ -290,7 +290,7 @@ const Appointment = (props) => {
                 </ListItemIcon>
 
                 <ListItemText
-                    primary={booker.name || id}
+                    primary={booker?.name || id}
                     secondary={
                         <Tooltip
                             title={DateFns.format(dt, 'dd.MM.yy hh:mm')}
@@ -369,15 +369,17 @@ export const AppointmentCalendar = (props) => {
     const {
         appointments = [],
         bookings = [],
+        bookers = {},
         startDate,
         endDate,
         duration,
     } = props;
     const start = startDate || new Date();
     const end = endDate || new Date();
-    const apts = (bookings || []).map(({ booker, id, startDate, endDate }) => {
+    const apts = (bookings || []).map(({ id, startDate, endDate }) => {
+        const booker = bookers[id];
         return {
-            title: booker.name,
+            title: booker?.name,
             id,
             startDate: new Date(startDate),
             endDate: DateFns.addMinutes(new Date(startDate), duration),
