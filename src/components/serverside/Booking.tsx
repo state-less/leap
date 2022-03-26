@@ -230,7 +230,7 @@ export const AppointmentsCard = (props) => {
     );
 };
 
-const MoreMenu = ({ onClick, id }) => {
+const MoreMenu = ({ anchorEl }) => {
     const confirm = useAction('confirm', 'onClick');
     const cancel = useAction('cancel', 'onClick');
     const del = useAction('delete', 'onClick');
@@ -243,13 +243,13 @@ const MoreMenu = ({ onClick, id }) => {
         >
             <MenuItem onClick={() => confirm()}>Confirm</MenuItem>
             <MenuItem onClick={() => cancel()}>Cancel</MenuItem>
-            <MenuItem onClick={() => del()}>Archive</MenuItem>
+            <MenuItem onClick={() => del()}>Delete</MenuItem>
         </Menu>
     );
 };
 
 const Appointment = (props) => {
-    const { id, startDate, booker, bookers, flags } = props;
+    const { id, startDate, booker, flags } = props;
     const dt = new Date(startDate);
     const fromNow = moment(dt).fromNow();
     const [anchorEl, setAnchor] = useState(null);
@@ -290,7 +290,7 @@ const Appointment = (props) => {
                 </ListItemIcon>
 
                 <ListItemText
-                    primary={bookers[id]?.name || id}
+                    primary={booker.name || id}
                     secondary={
                         <Tooltip
                             title={DateFns.format(dt, 'dd.MM.yy hh:mm')}
@@ -342,7 +342,7 @@ export const AppointmentsList = ({
                             <Appointment
                                 {...a}
                                 id={id}
-                                bookers={bookers}
+                                booker={bookers[id]}
                                 flags={flags}
                             />
                         </ServerComponent>
@@ -354,7 +354,7 @@ export const AppointmentsList = ({
                             <Appointment
                                 {...a}
                                 id={id}
-                                bookers={bookers}
+                                booker={bookers[id]}
                                 flags={flags}
                             />
                         </ServerComponent>

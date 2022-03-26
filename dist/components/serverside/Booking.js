@@ -263,8 +263,7 @@ var AppointmentsCard = function AppointmentsCard(props) {
 exports.AppointmentsCard = AppointmentsCard;
 
 var MoreMenu = function MoreMenu(_ref) {
-  var onClick = _ref.onClick,
-      id = _ref.id;
+  var anchorEl = _ref.anchorEl;
   var confirm = (0, _reactClient.useAction)('confirm', 'onClick');
   var cancel = (0, _reactClient.useAction)('cancel', 'onClick');
   var del = (0, _reactClient.useAction)('delete', 'onClick');
@@ -288,18 +287,15 @@ var MoreMenu = function MoreMenu(_ref) {
       onClick: function onClick() {
         return del();
       },
-      children: "Archive"
+      children: "Delete"
     })]
   });
 };
 
 var Appointment = function Appointment(props) {
-  var _bookers$id;
-
   var id = props.id,
       startDate = props.startDate,
       booker = props.booker,
-      bookers = props.bookers,
       flags = props.flags;
   var dt = new Date(startDate);
   var fromNow = (0, _moment.default)(dt).fromNow();
@@ -326,7 +322,7 @@ var Appointment = function Appointment(props) {
           })
         })
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemText, {
-        primary: ((_bookers$id = bookers[id]) === null || _bookers$id === void 0 ? void 0 : _bookers$id.name) || id,
+        primary: booker.name || id,
         secondary: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Tooltip, {
           title: DateFns.format(dt, 'dd.MM.yy hh:mm'),
           placement: "top-start",
@@ -379,7 +375,7 @@ var AppointmentsList = function AppointmentsList(_ref2) {
           name: "appointment-".concat(id),
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Appointment, _objectSpread(_objectSpread({}, a), {}, {
             id: id,
-            bookers: bookers,
+            booker: bookers[id],
             flags: flags
           }))
         });
@@ -391,7 +387,7 @@ var AppointmentsList = function AppointmentsList(_ref2) {
           name: "appointment-".concat(id),
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Appointment, _objectSpread(_objectSpread({}, a), {}, {
             id: id,
-            bookers: bookers,
+            booker: bookers[id],
             flags: flags
           }))
         });
