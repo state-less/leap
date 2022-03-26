@@ -1,4 +1,4 @@
-import { Poll, Comments, Counter } from './components/serverside';
+import { Poll, Comments, Counter, Booking } from './components/serverside';
 import {
     FingerprintButton,
     GoogleButton,
@@ -9,6 +9,7 @@ import {
 export * from './components/TestComponent';
 
 export {
+    Booking,
     Poll,
     Comments,
     Counter,

@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Booking", {
+  enumerable: true,
+  get: function get() {
+    return _Booking.Booking;
+  }
+});
 Object.defineProperty(exports, "Comments", {
   enumerable: true,
   get: function get() {
@@ -27,3 +33,5 @@ var _Poll = require("./Poll");
 var _Comments = require("./Comments");
 
 var _Counter = require("./Counter");
+
+var _Booking = require("./Booking");

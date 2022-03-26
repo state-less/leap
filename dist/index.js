@@ -7,12 +7,19 @@ var _exportNames = {
   Poll: true,
   Comments: true,
   Counter: true,
+  Booking: true,
   FingerprintButton: true,
   GoogleButton: true,
   LoginMenuButton: true,
   LogoutButton: true,
   WebAuthnButton: true
 };
+Object.defineProperty(exports, "Booking", {
+  enumerable: true,
+  get: function get() {
+    return _serverside.Booking;
+  }
+});
 Object.defineProperty(exports, "Comments", {
   enumerable: true,
   get: function get() {

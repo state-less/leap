@@ -1,6 +1,11 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
 import { Avatar, ButtonProps } from '@mui/material';
-import { useAuth, useClientContext } from '@state-less/react-client';
+import {
+    useAuth,
+    useClientContext,
+    assertGetSingleHost,
+} from '@state-less/react-client';
 import { FunctionComponent, useState } from 'react';
 import GoogleLogin, { useGoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT } from '../../config';
@@ -68,7 +73,10 @@ export const GoogleButton: FunctionComponent<GoogleButtonProps> = ({
     ...rest
 }) => {
     const rcc = useClientContext() as any;
-    const { identity } = rcc;
+    const { identity, hosts } = rcc;
+
+    if (host === null) host = assertGetSingleHost(hosts, host);
+
     const [error, setError] = useState(null);
     const { authenticate } = useAuth(googleStrategy as any, { auto, host });
 
