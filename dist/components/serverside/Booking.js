@@ -43,6 +43,8 @@ var _FormControlLabel = require("../translated/FormControlLabel");
 
 var _reactI18next = require("react-i18next");
 
+var _const = require("../../lib/static/const");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["id"],
@@ -224,25 +226,27 @@ var AvailabilityPicker = function AvailabilityPicker(props) {
               })]
             })]
           })
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
-          label: "SHOW_PROMO",
-          control: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Checkbox, {
-            onClick: function onClick() {
-              return toggleFlag('showDemo');
-            },
-            disabled: loading,
-            checked: flags.showDemo
-          })
-        }, "showdemo"), /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
-          label: "SHOW_RECURRING",
-          control: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Checkbox, {
-            onClick: function onClick() {
-              return toggleFlag('showRecurring');
-            },
-            disabled: loading,
-            checked: flags.showRecurring
-          })
-        }, "showdemo")]
+        }), false && /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
+            label: "SHOW_PROMO",
+            control: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Checkbox, {
+              onClick: function onClick() {
+                return toggleFlag('showDemo');
+              },
+              disabled: loading,
+              checked: flags.showDemo
+            })
+          }, "showdemo"), /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
+            label: "SHOW_RECURRING",
+            control: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Checkbox, {
+              onClick: function onClick() {
+                return toggleFlag('showRecurring');
+              },
+              disabled: loading,
+              checked: flags.showRecurring
+            })
+          }, "showdemo")]
+        })]
       })]
     }), loading && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.LinearProgress, {})]
   });
@@ -324,7 +328,7 @@ var Appointment = function Appointment(props) {
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemText, {
         primary: (booker === null || booker === void 0 ? void 0 : booker.name) || id,
         secondary: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Tooltip, {
-          title: DateFns.format(dt, 'dd.MM.yy hh:mm'),
+          title: DateFns.format(dt, _const.DEFAULT_DATE_FORMAT),
           placement: "top-start",
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
             children: fromNow
@@ -573,7 +577,7 @@ var BookingDatePicker = function BookingDatePicker(props) {
               }).map(function (e, i) {
                 var appointment = DateFns.addDays(bookingDate || new Date(), 7 * i);
                 return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
-                  label: DateFns.format(appointment, 'dd.MM hh:mm')
+                  label: DateFns.format(appointment, _const.DEFAULT_TIME_FORMAT)
                 });
               })]
             })]
@@ -649,7 +653,7 @@ var BookingDatePicker = function BookingDatePicker(props) {
                       onClick: function onClick() {
                         return setTime(date);
                       },
-                      label: DateFns.format(date, 'hh:mm'),
+                      label: DateFns.format(date, _const.DEFAULT_TIME_FORMAT),
                       sx: {
                         mt: 1
                       }

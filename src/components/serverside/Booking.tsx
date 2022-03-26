@@ -72,6 +72,7 @@ import { TranslatedAlert } from '../translated/Alert';
 import { TranslatedCardHeader } from '../translated/CardHeader';
 import { TranslatedFormControlLabel } from '../translated/FormControlLabel';
 import { useTranslation } from 'react-i18next';
+import { DEFAULT_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '../../lib/static/const';
 
 const getHostLabel = (address) => {
     return address?.name || address?.email;
@@ -190,28 +191,34 @@ export const AvailabilityPicker = (props) => {
                             </Select>
                         </Stack>
                     </FormGroup>
-                    <TranslatedFormControlLabel
-                        key="showdemo"
-                        label="SHOW_PROMO"
-                        control={
-                            <Checkbox
-                                onClick={() => toggleFlag('showDemo')}
-                                disabled={loading}
-                                checked={flags.showDemo}
+                    {false && (
+                        <>
+                            <TranslatedFormControlLabel
+                                key="showdemo"
+                                label="SHOW_PROMO"
+                                control={
+                                    <Checkbox
+                                        onClick={() => toggleFlag('showDemo')}
+                                        disabled={loading}
+                                        checked={flags.showDemo}
+                                    />
+                                }
                             />
-                        }
-                    />
-                    <TranslatedFormControlLabel
-                        key="showdemo"
-                        label="SHOW_RECURRING"
-                        control={
-                            <Checkbox
-                                onClick={() => toggleFlag('showRecurring')}
-                                disabled={loading}
-                                checked={flags.showRecurring}
+                            <TranslatedFormControlLabel
+                                key="showdemo"
+                                label="SHOW_RECURRING"
+                                control={
+                                    <Checkbox
+                                        onClick={() =>
+                                            toggleFlag('showRecurring')
+                                        }
+                                        disabled={loading}
+                                        checked={flags.showRecurring}
+                                    />
+                                }
                             />
-                        }
-                    />
+                        </>
+                    )}
                 </CardContent>
             </LocalizationProvider>
             {loading && <LinearProgress />}
@@ -293,7 +300,7 @@ const Appointment = (props) => {
                     primary={booker?.name || id}
                     secondary={
                         <Tooltip
-                            title={DateFns.format(dt, 'dd.MM.yy hh:mm')}
+                            title={DateFns.format(dt, DEFAULT_DATE_FORMAT)}
                             placement="top-start"
                         >
                             <span>{fromNow}</span>
@@ -517,7 +524,7 @@ export const BookingDatePicker = (props) => {
                                                   <Chip
                                                       label={DateFns.format(
                                                           appointment,
-                                                          'dd.MM hh:mm'
+                                                          DEFAULT_TIME_FORMAT
                                                       )}
                                                   />
                                               );
@@ -618,7 +625,7 @@ export const BookingDatePicker = (props) => {
                                                     }
                                                     label={DateFns.format(
                                                         date,
-                                                        'hh:mm'
+                                                        DEFAULT_TIME_FORMAT
                                                     )}
                                                     sx={{ mt: 1 }}
                                                 />

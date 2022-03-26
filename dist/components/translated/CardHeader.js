@@ -9,5 +9,5 @@ var _material = require("@mui/material");
 
 var _ = require(".");
 
-var TranslatedCardHeader = (0, _.withTranslation)(_material.CardHeader, ["title"]);
+var TranslatedCardHeader = (0, _.withTranslation)(_material.CardHeader, ['title', 'subheader']);
 exports.TranslatedCardHeader = TranslatedCardHeader;

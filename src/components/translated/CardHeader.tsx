@@ -1,5 +1,7 @@
-import { CardHeader } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { withTranslation } from ".";
+import { CardHeader } from '@mui/material';
+import { withTranslation } from '.';
 
-export const TranslatedCardHeader = withTranslation(CardHeader, ["title"]);
+export const TranslatedCardHeader = withTranslation(CardHeader, [
+    'title',
+    'subheader',
+]);
