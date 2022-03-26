@@ -36,7 +36,7 @@ import {
     LinearProgress,
 } from '@mui/material';
 import TimePicker from '@mui/lab/TimePicker';
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import * as DateFns from 'date-fns';
@@ -71,6 +71,11 @@ import { TranslatedTooltip } from '../translated/Tooltip';
 import { TranslatedAlert } from '../translated/Alert';
 import { TranslatedCardHeader } from '../translated/CardHeader';
 import { TranslatedFormControlLabel } from '../translated/FormControlLabel';
+import { useTranslation } from 'react-i18next';
+
+const getHostLabel = (address) => {
+    return address?.name || address?.email;
+};
 
 const dateEquals = (dateA, dateB) => {
     return DateFns.isEqual(new Date(dateA), new Date(dateB));
@@ -411,6 +416,7 @@ export const BookingDatePicker = (props) => {
         book,
         flags: { showRecurring, showDemo } = {},
     } = props;
+    const { t } = useTranslation();
     const [value, setValue] = React.useState([null, null]);
     const [from, to] = value;
     const [time, setTime] = useState(null);
@@ -458,24 +464,22 @@ export const BookingDatePicker = (props) => {
                 <Grid container className="fh" sx={{ overflow: 'hidden' }}>
                     <Grid item xs={12} md={showRecurring || showDemo ? 4 : 6}>
                         <Card>
-                            <CardHeader title={`${duration} Min Besprechung`} />
+                            <CardHeader
+                                title={t('APT_DURATION', { duration })}
+                            />
                             <CardContent>
-                                <Typography variant="h6">Teilnehmer</Typography>
-                                <Chip
-                                    avatar={<Avatar src="/images/illo.jpg" />}
-                                    label="David Sträb"
-                                />
+                                <Typography variant="h6">
+                                    {t('APT_PARTICIPANTS')}
+                                </Typography>
+                                {host && <IdentityChip {...host} />}
                                 {identity?.address?.name && (
-                                    <Chip
-                                        avatar={
-                                            <Avatar
-                                                src={identity?.address?.picture}
-                                            />
-                                        }
-                                        label={identity?.address?.name}
-                                    />
+                                    <IdentityChip {...identity?.address} />
                                 )}
-                                <Typography variant="h6">Termine</Typography>
+                                <Typography variant="h6">
+                                    {t('APT_APPOINTMENTS', {
+                                        n: appointments?.length,
+                                    })}
+                                </Typography>
                                 {!numA
                                     ? ''
                                     : Array.from({ length: numA }).map(
@@ -572,7 +576,7 @@ export const BookingDatePicker = (props) => {
                                                     date
                                                 )
                                                     ? 'TITLE_BOOKED'
-                                                    : 'TITLE_BOOKED'
+                                                    : 'TITLE_AVAILABLE'
                                             }
                                         >
                                             <span>
@@ -610,10 +614,10 @@ export const BookingDatePicker = (props) => {
                             >
                                 {showDemo && (
                                     <TranslatedTooltip
-                                        title="Buchen Sie einmalig einen kostenloses Schnuppertermin"
+                                        title="APT_BOOK_PROMO"
                                         placement="top"
                                     >
-                                        <FormControlLabel
+                                        <TranslatedFormControlLabel
                                             disabled={weekly}
                                             onChange={() =>
                                                 setUseDemo(!useDemo)
@@ -624,7 +628,7 @@ export const BookingDatePicker = (props) => {
                                                     disabled={usedDemo}
                                                 />
                                             }
-                                            label="Schnuppern"
+                                            label="APT_USE_PROMO"
                                         />
                                     </TranslatedTooltip>
                                 )}
@@ -633,21 +637,23 @@ export const BookingDatePicker = (props) => {
                                     <Tooltip
                                         title={
                                             useDemo
-                                                ? 'Nicht verfügbar als Schnupperkurs'
-                                                : 'Buchen Sie wöchentlich wiederkehrende Termine.'
+                                                ? 'APT_NA_PROMO'
+                                                : 'APT_BOOK_RECURRING'
                                         }
                                     >
-                                        <FormControlLabel
+                                        <TranslatedFormControlLabel
                                             control={
                                                 <Checkbox
-                                                    disabled={useDemo}
+                                                    disabled={
+                                                        showDemo && useDemo
+                                                    }
                                                     onChange={() =>
                                                         setWeekly(!weekly)
                                                     }
                                                     checked={weekly}
                                                 />
                                             }
-                                            label="Wöchentlich"
+                                            label="APT_WEEKLY"
                                         />
                                     </Tooltip>
                                 )}
@@ -719,5 +725,20 @@ export const Booking = ({ View = BookingView }) => {
         <ServerComponent name="booking">
             <BookingModel Component={View} />
         </ServerComponent>
+    );
+};
+
+type Identity = {
+    picture: string;
+    email: string;
+    name?: string;
+};
+export const IdentityChip: FunctionComponent<Identity> = (props) => {
+    const { picture, email, name } = props;
+    return (
+        <Chip
+            avatar={picture && <Avatar src={picture} />}
+            label={name || email}
+        />
     );
 };

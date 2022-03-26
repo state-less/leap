@@ -106,12 +106,9 @@ var GoogleButton = function GoogleButton(_ref) {
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var rcc = (0, _reactClient.useClientContext)();
-  var identity = rcc.identity;
-  var hosts = rcc.hosts;
-
-  if (host === null) {
-    host = assert;
-  }
+  var identity = rcc.identity,
+      hosts = rcc.hosts;
+  if (host === null) host = (0, _reactClient.assertGetSingleHost)(hosts, host);
 
   var _useState = (0, _react.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),

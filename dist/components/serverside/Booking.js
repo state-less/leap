@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BookingDatePicker = exports.Booking = exports.AvailabilityPicker = exports.AppointmentsList = exports.AppointmentsCard = exports.AppointmentSwitch = exports.AppointmentCalendar = void 0;
+exports.IdentityChip = exports.BookingDatePicker = exports.Booking = exports.AvailabilityPicker = exports.AppointmentsList = exports.AppointmentsCard = exports.AppointmentSwitch = exports.AppointmentCalendar = void 0;
 
 var _material = require("@mui/material");
 
@@ -41,6 +41,8 @@ var _CardHeader = require("../translated/CardHeader");
 
 var _FormControlLabel = require("../translated/FormControlLabel");
 
+var _reactI18next = require("react-i18next");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["id"],
@@ -73,6 +75,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var getHostLabel = function getHostLabel(address) {
+  return (address === null || address === void 0 ? void 0 : address.name) || (address === null || address === void 0 ? void 0 : address.email);
+};
 
 var dateEquals = function dateEquals(dateA, dateB) {
   return DateFns.isEqual(new Date(dateA), new Date(dateB));
@@ -452,7 +458,7 @@ var AppointmentSwitch = function AppointmentSwitch(props) {
 exports.AppointmentSwitch = AppointmentSwitch;
 
 var BookingDatePicker = function BookingDatePicker(props) {
-  var _identity$address, _identity$address2, _identity$address3;
+  var _identity$address;
 
   var startDate = props.startDate,
       endDate = props.endDate,
@@ -469,6 +475,9 @@ var BookingDatePicker = function BookingDatePicker(props) {
   _props$flags = _props$flags === void 0 ? {} : _props$flags;
   var showRecurring = _props$flags.showRecurring,
       showDemo = _props$flags.showDemo;
+
+  var _useTranslation = (0, _reactI18next.useTranslation)(),
+      t = _useTranslation.t;
 
   var _React$useState3 = _react.default.useState([null, null]),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
@@ -535,24 +544,18 @@ var BookingDatePicker = function BookingDatePicker(props) {
           md: showRecurring || showDemo ? 4 : 6,
           children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.Card, {
             children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_material.CardHeader, {
-              title: "".concat(duration, " Min Besprechung")
+              title: t('APT_DURATION', {
+                duration: duration
+              })
             }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.CardContent, {
               children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
                 variant: "h6",
-                children: "Teilnehmer"
-              }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
-                avatar: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Avatar, {
-                  src: "/images/illo.jpg"
-                }),
-                label: "David Str\xE4b"
-              }), (identity === null || identity === void 0 ? void 0 : (_identity$address = identity.address) === null || _identity$address === void 0 ? void 0 : _identity$address.name) && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
-                avatar: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Avatar, {
-                  src: identity === null || identity === void 0 ? void 0 : (_identity$address2 = identity.address) === null || _identity$address2 === void 0 ? void 0 : _identity$address2.picture
-                }),
-                label: identity === null || identity === void 0 ? void 0 : (_identity$address3 = identity.address) === null || _identity$address3 === void 0 ? void 0 : _identity$address3.name
-              }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
+                children: t('APT_PARTICIPANTS')
+              }), host && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, host)), (identity === null || identity === void 0 ? void 0 : (_identity$address = identity.address) === null || _identity$address === void 0 ? void 0 : _identity$address.name) && /*#__PURE__*/(0, _jsxRuntime.jsx)(IdentityChip, _objectSpread({}, identity === null || identity === void 0 ? void 0 : identity.address)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Typography, {
                 variant: "h6",
-                children: "Termine"
+                children: t('APT_APPOINTMENTS', {
+                  n: appointments === null || appointments === void 0 ? void 0 : appointments.length
+                })
               }), !numA ? '' : Array.from({
                 length: numA
               }).map(function (e, i) {
@@ -626,7 +629,7 @@ var BookingDatePicker = function BookingDatePicker(props) {
               className: "fh",
               children: stepsArr.map(function (date) {
                 return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Tooltip.TranslatedTooltip, {
-                  title: hasAppointment(appointments, date) ? 'TITLE_BOOKED' : 'TITLE_BOOKED',
+                  title: hasAppointment(appointments, date) ? 'TITLE_BOOKED' : 'TITLE_AVAILABLE',
                   children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
                     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
                       disabled: hasAppointment(appointments, date),
@@ -655,9 +658,9 @@ var BookingDatePicker = function BookingDatePicker(props) {
               width: '100%'
             },
             children: [showDemo && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Tooltip.TranslatedTooltip, {
-              title: "Buchen Sie einmalig einen kostenloses Schnuppertermin",
+              title: "APT_BOOK_PROMO",
               placement: "top",
-              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.FormControlLabel, {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
                 disabled: weekly,
                 onChange: function onChange() {
                   return setUseDemo(!useDemo);
@@ -666,19 +669,19 @@ var BookingDatePicker = function BookingDatePicker(props) {
                   defaultChecked: !usedDemo,
                   disabled: usedDemo
                 }),
-                label: "Schnuppern"
+                label: "APT_USE_PROMO"
               })
             }), showRecurring && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Tooltip, {
-              title: useDemo ? 'Nicht verfügbar als Schnupperkurs' : 'Buchen Sie wöchentlich wiederkehrende Termine.',
-              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.FormControlLabel, {
+              title: useDemo ? 'APT_NA_PROMO' : 'APT_BOOK_RECURRING',
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormControlLabel.TranslatedFormControlLabel, {
                 control: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Checkbox, {
-                  disabled: useDemo,
+                  disabled: showDemo && useDemo,
                   onChange: function onChange() {
                     return setWeekly(!weekly);
                   },
                   checked: weekly
                 }),
-                label: "W\xF6chentlich"
+                label: "APT_WEEKLY"
               })
             })]
           })
@@ -753,3 +756,17 @@ var Booking = function Booking(_ref7) {
 };
 
 exports.Booking = Booking;
+
+var IdentityChip = function IdentityChip(props) {
+  var picture = props.picture,
+      email = props.email,
+      name = props.name;
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Chip, {
+    avatar: picture && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Avatar, {
+      src: picture
+    }),
+    label: name || email
+  });
+};
+
+exports.IdentityChip = IdentityChip;
