@@ -413,6 +413,7 @@ export const BookingDatePicker = (props) => {
         usedDemo = false,
         availableDays = [],
         appointments = [],
+        host = null,
         book,
         flags: { showRecurring, showDemo } = {},
     } = props;

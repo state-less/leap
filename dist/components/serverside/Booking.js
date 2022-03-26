@@ -470,6 +470,8 @@ var BookingDatePicker = function BookingDatePicker(props) {
       availableDays = _props$availableDays2 === void 0 ? [] : _props$availableDays2,
       _props$appointments2 = props.appointments,
       appointments = _props$appointments2 === void 0 ? [] : _props$appointments2,
+      _props$host = props.host,
+      host = _props$host === void 0 ? null : _props$host,
       book = props.book,
       _props$flags = props.flags;
   _props$flags = _props$flags === void 0 ? {} : _props$flags;
