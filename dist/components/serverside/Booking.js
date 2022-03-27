@@ -31,6 +31,8 @@ var _StaticDatePicker = _interopRequireDefault(require("@mui/lab/StaticDatePicke
 
 var _dxReactSchedulerMaterialUi = require("@devexpress/dx-react-scheduler-material-ui");
 
+var _reactI18next = require("react-i18next");
+
 var _Icons = require("../Icons");
 
 var _Tooltip = require("../translated/Tooltip");
@@ -40,8 +42,6 @@ var _Alert = require("../translated/Alert");
 var _CardHeader = require("../translated/CardHeader");
 
 var _FormControlLabel = require("../translated/FormControlLabel");
-
-var _reactI18next = require("react-i18next");
 
 var _const = require("../../lib/static/const");
 

@@ -58,6 +58,7 @@ import {
     AppointmentTooltip,
     MonthView,
 } from '@devexpress/dx-react-scheduler-material-ui';
+import { useTranslation } from 'react-i18next';
 import {
     CalendarMonthIcon,
     CalendarViewDayIcon,
@@ -71,8 +72,10 @@ import { TranslatedTooltip } from '../translated/Tooltip';
 import { TranslatedAlert } from '../translated/Alert';
 import { TranslatedCardHeader } from '../translated/CardHeader';
 import { TranslatedFormControlLabel } from '../translated/FormControlLabel';
-import { useTranslation } from 'react-i18next';
-import { DEFAULT_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '../../lib/static/const';
+import {
+    DEFAULT_DATE_FORMAT,
+    DEFAULT_TIME_FORMAT,
+} from '../../lib/static/const';
 
 const getHostLabel = (address) => {
     return address?.name || address?.email;
