@@ -1,10 +1,11 @@
 {
     "name": "@state-less/leap",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "The leap fullstack framework",
     "main": "dist/index.js",
     "private": true,
     "dependencies": {
+        "@devexpress/dx-core": "^3.0.2",
         "@devexpress/dx-react-scheduler": "^3.0.2",
         "@devexpress/dx-react-scheduler-material-ui": "^3.0.2",
         "@emotion/react": "^11.8.1",
@@ -46,7 +47,7 @@
     },
     "peerDependencies": {
         "@mui/material": "^5.5.0",
-        "@state-less/react-client": "github:state-less/react-client#alpha/0.0.3",
+        "@state-less/react-client": "github:state-less/react-client#alpha/0.0.4",
         "i18next": "^20.3.5",
         "react": "^17.0.2"
     },

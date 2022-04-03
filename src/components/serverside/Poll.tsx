@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {
     Alert,
     IconButton,
@@ -102,7 +103,10 @@ export const PollItem: FunctionComponent<PollItemProps> = (props) => {
                 }}
             />
             <ListItemIcon>
-                <IconButton onClick={() => vote(index)}>
+                <IconButton
+                    disabled={vote.disabled}
+                    onClick={() => vote(index)}
+                >
                     {buttons((props, item) => {
                         return (
                             <spring.span style={{ ...props, height: 24 }}>

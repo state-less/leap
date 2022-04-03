@@ -133,6 +133,7 @@ var PollItem = function PollItem(props) {
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.ListItemIcon, {
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.IconButton, {
+        disabled: vote.disabled,
         onClick: function onClick() {
           return vote(index);
         },
