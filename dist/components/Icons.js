@@ -38,6 +38,12 @@ Object.defineProperty(exports, "ErrorIcon", {
     return _Error.default;
   }
 });
+Object.defineProperty(exports, "FileUploadIcon", {
+  enumerable: true,
+  get: function get() {
+    return _FileUpload.default;
+  }
+});
 Object.defineProperty(exports, "FingerprintIcon", {
   enumerable: true,
   get: function get() {
@@ -68,6 +74,12 @@ Object.defineProperty(exports, "InfoIcon", {
   enumerable: true,
   get: function get() {
     return _Info.default;
+  }
+});
+Object.defineProperty(exports, "InsertDriveFileIcon", {
+  enumerable: true,
+  get: function get() {
+    return _InsertDriveFile.default;
   }
 });
 exports.LanguageIcon = void 0;
@@ -136,6 +148,10 @@ var _Close = _interopRequireDefault(require("@mui/icons-material/Close"));
 var _Palette = _interopRequireDefault(require("@mui/icons-material/Palette"));
 
 var _Map = _interopRequireDefault(require("@mui/icons-material/Map"));
+
+var _FileUpload = _interopRequireDefault(require("@mui/icons-material/FileUpload"));
+
+var _InsertDriveFile = _interopRequireDefault(require("@mui/icons-material/InsertDriveFile"));
 
 var _iconsMaterial = require("@mui/icons-material");
 

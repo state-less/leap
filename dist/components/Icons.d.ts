@@ -7,6 +7,8 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import PaletteIcon from '@mui/icons-material/Palette';
 import MapIcon from '@mui/icons-material/Map';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import SaveIcon from '@mui/icons-material/Save';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -96,4 +98,4 @@ export declare const ClockIcon: import("@mui/material/OverridableComponent").Ove
 };
 export declare const YubiKeyIcon: (props: any) => JSX.Element;
 export declare const MetaMaskIcon: (props: any) => JSX.Element;
-export { SettingsIcon, InfoIcon, AddIcon, SaveIcon, DeleteIcon, GoogleIcon, GitHubIcon, CloseIcon, CheckIcon, ErrorIcon, FingerprintIcon, HourglassDisabledIcon, PaletteIcon, MapIcon, };
+export { SettingsIcon, InfoIcon, AddIcon, SaveIcon, DeleteIcon, GoogleIcon, GitHubIcon, CloseIcon, CheckIcon, ErrorIcon, FingerprintIcon, HourglassDisabledIcon, PaletteIcon, MapIcon, FileUploadIcon, InsertDriveFileIcon, };

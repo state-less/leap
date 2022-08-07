@@ -1,0 +1,1 @@
+export const DEFAULT_CHUNKSIZE = 1024 * 1024 * 10;

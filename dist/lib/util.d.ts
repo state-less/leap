@@ -7,3 +7,4 @@ export declare const getWebAuthnId: (address: any) => any;
  * @returns
  */
 export declare const truncateMid: (str: string, n?: number) => string;
+export declare const blobToDataURL: (blob: Blob) => Promise<string | ArrayBuffer>;

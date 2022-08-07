@@ -21,6 +21,8 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
 import PaletteIcon from '@mui/icons-material/Palette';
 import MapIcon from '@mui/icons-material/Map';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 
 import {
     SettingsInputAntennaOutlined,
@@ -113,4 +115,6 @@ export {
     HourglassDisabledIcon,
     PaletteIcon,
     MapIcon,
+    FileUploadIcon,
+    InsertDriveFileIcon,
 };

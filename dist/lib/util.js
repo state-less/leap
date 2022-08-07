@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.truncateMid = exports.noop = exports.getWebAuthnId = void 0;
+exports.truncateMid = exports.noop = exports.getWebAuthnId = exports.blobToDataURL = void 0;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 var noop = function noop() {};
@@ -30,3 +30,18 @@ var truncateMid = function truncateMid(str) {
 };
 
 exports.truncateMid = truncateMid;
+
+var blobToDataURL = function blobToDataURL(blob) {
+  return new Promise(function (resolve, reject) {
+    var fileReader = new FileReader();
+
+    fileReader.onload = function (e) {
+      resolve(e.target.result);
+    };
+
+    fileReader.onerror = reject;
+    fileReader.readAsDataURL(blob);
+  });
+};
+
+exports.blobToDataURL = blobToDataURL;

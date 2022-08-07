@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es2019",
         "rootDir": "src",
         "jsx": "preserve",
         // Ensure that .d.ts files are created by tsc, but not .js files
