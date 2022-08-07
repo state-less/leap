@@ -13,8 +13,6 @@ var _jotai2 = require("../../lib/hooks/jotai");
 
 var _Icons = require("../Icons");
 
-var _Alert = require("../translated/Alert");
-
 var _jsxRuntime = require("react/jsx-runtime");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -44,7 +42,8 @@ var atoms = {};
 
 var DismissableAlert = function DismissableAlert(props) {
   var _props$name = props.name,
-      name = _props$name === void 0 ? 'dismissable-alert' : _props$name;
+      name = _props$name === void 0 ? 'dismissable-alert' : _props$name,
+      children = props.children;
   var atm = atoms[name] || (atoms[name] = (0, _jotai.atom)(false));
 
   var _useLocalStorage = (0, _jotai2.useLocalStorage)("alert.hidden.".concat(name), atm, false),
@@ -52,13 +51,14 @@ var DismissableAlert = function DismissableAlert(props) {
       hidden = _useLocalStorage2[0],
       setHidden = _useLocalStorage2[1];
 
-  return hidden ? null : /*#__PURE__*/(0, _jsxRuntime.jsx)(_Alert.TranslatedAlert, _objectSpread(_objectSpread({}, props), {}, {
+  return !hidden && /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Alert, _objectSpread(_objectSpread({}, props), {}, {
     action: /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.IconButton, {
       onClick: function onClick() {
         return setHidden(true);
       },
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Icons.CloseIcon, {})
-    })
+    }),
+    children: children
   }));
 };
 

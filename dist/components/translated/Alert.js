@@ -9,10 +9,14 @@ var _material = require("@mui/material");
 
 var _reactI18next = require("react-i18next");
 
+var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["children"],
-    _excluded2 = ["children"];
+    _excluded2 = ["children", "markdown"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -40,13 +44,19 @@ exports.TranslatedAlertTitle = TranslatedAlertTitle;
 
 var TranslatedAlert = function TranslatedAlert(props) {
   var children = props.children,
+      markdown = props.markdown,
       rest = _objectWithoutProperties(props, _excluded2);
 
   var _useTranslation2 = (0, _reactI18next.useTranslation)(),
       t = _useTranslation2.t;
 
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Alert, _objectSpread(_objectSpread({}, rest), {}, {
-    children: t(children)
+  var translated = t(children);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_material.Alert, _objectSpread(_objectSpread({
+    square: true
+  }, rest), {}, {
+    children: markdown ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactMarkdown.default, {
+      children: translated
+    }) : translated
   }));
 };
 

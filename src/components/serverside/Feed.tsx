@@ -16,11 +16,13 @@ import {
     useProps,
 } from '@state-less/react-client';
 import { useState } from 'react';
-import { TranslatedAlert } from '../translated/Alert';
+import { TranslatedAlert, TranslatedAlertTitle } from '../translated/Alert';
 import { TranslatedButton } from '../translated/Button';
 import { File, FileSelector, FileSystem, FileUploadButton } from './FileSystem';
 import { DismissableAlert } from '../alert/DismissableAlert';
 import { Post, PostModel } from './Post';
+import { useTranslation } from 'react-i18next';
+import { Text } from '../translated/Text';
 
 export const renderImage = (src) => <img src={src} />;
 
@@ -33,7 +35,7 @@ export const FeedView = (props) => {
         renderFile,
         loading,
     } = props;
-
+    const { t } = useTranslation();
     const [page, setPage] = useState(1);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -77,7 +79,8 @@ export const FeedView = (props) => {
                         name="alerts.feed.thoughts"
                         severity="info"
                     >
-                        alerts.feed.thoughts
+                        <TranslatedAlertTitle>title.post</TranslatedAlertTitle>
+                        <Text>alerts.feed.thoughts</Text>
                     </DismissableAlert>
 
                     <Grid container>
@@ -133,7 +136,7 @@ export const FeedView = (props) => {
                             setContent('');
                         }}
                     >
-                        POST
+                        buttons.post
                     </TranslatedButton>
                     <FileSystem
                         Component={FileUploadButton}

@@ -23,6 +23,10 @@ var _DismissableAlert = require("../alert/DismissableAlert");
 
 var _Post = require("./Post");
 
+var _reactI18next = require("react-i18next");
+
+var _Text = require("../translated/Text");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _excluded = ["children", "View"],
@@ -73,6 +77,9 @@ var FeedView = function FeedView(props) {
       pageSize = _props$pageSize === void 0 ? 10 : _props$pageSize,
       renderFile = props.renderFile,
       loading = props.loading;
+
+  var _useTranslation = (0, _reactI18next.useTranslation)(),
+      t = _useTranslation.t;
 
   var _useState = (0, _react.useState)(1),
       _useState2 = _slicedToArray(_useState, 2),
@@ -135,10 +142,14 @@ var FeedView = function FeedView(props) {
         severity: "warning",
         children: "alerts.noData"
       }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.CardContent, {
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_DismissableAlert.DismissableAlert, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_DismissableAlert.DismissableAlert, {
           name: "alerts.feed.thoughts",
           severity: "info",
-          children: "alerts.feed.thoughts"
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Alert.TranslatedAlertTitle, {
+            children: "title.post"
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Text.Text, {
+            children: "alerts.feed.thoughts"
+          })]
         }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.Grid, {
           container: true,
           children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_material.Grid, {
@@ -203,7 +214,7 @@ var FeedView = function FeedView(props) {
               return _ref.apply(this, arguments);
             };
           }(),
-          children: "POST"
+          children: "buttons.post"
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_FileSystem.FileSystem, {
           Component: _FileSystem.FileUploadButton,
           onSuccess: function onSuccess(names) {
